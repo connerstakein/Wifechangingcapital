@@ -490,20 +490,22 @@ const UserTokenBalance = () => {
                             </PurpleCard>
                             <PurpleCard style={{ marginBottom: '10px' }}>
                               {' '}
-                              <Styledtext>Liquidity {''}</Styledtext>
-                              <div hidden={loading}>
-                                <Styledtext1 style={{ position: 'relative', left: 265 }}>
-                                  ${TotalLiquidity}{' '}
-                                </Styledtext1>{' '}
-                                {loading ? (
-                                  <Spin
-                                    style={{ position: 'relative', left: 265 }}
-                                    indicator={antIcon}
-                                    className="add-spinner"
-                                  />
-                                ) : (
-                                  ''
-                                )}
+                              <div className="flexbox-container">
+                                <Styledtext>Liquidity {''}</Styledtext>
+                                <div hidden={loading}>
+                                  <Styledtext1 style={{ position: 'relative', left: 200 }}>
+                                    ${TotalLiquidity}{' '}
+                                  </Styledtext1>{' '}
+                                  {loading ? (
+                                    <Spin
+                                      style={{ position: 'relative', left: 200 }}
+                                      indicator={antIcon}
+                                      className="add-spinner"
+                                    />
+                                  ) : (
+                                    ''
+                                  )}
+                                </div>
                               </div>
                             </PurpleCard>
                             <PurpleCard style={{ marginBottom: '10px' }}>

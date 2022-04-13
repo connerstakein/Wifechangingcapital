@@ -63,7 +63,7 @@ const StyledHeaderText2 = styled.text`
   font-family: Monsterrat, sans-serif;
 `
 const StyledImg = styled.img`
-  justify-content: 'right';
+  justify-content: 'center';
 `
 const Headernew = () => {
   if (isMobile)
@@ -78,6 +78,7 @@ const Headernew = () => {
                   alignItems: 'center',
                   float: 'left',
                   width: 300,
+                  left: 50,
                   height: 300,
                   alignSelf: 'center',
                 }}

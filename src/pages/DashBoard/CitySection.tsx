@@ -18,21 +18,7 @@ const Companytest = () => {
           }}
         >
           <div className={'flexbox-vertical-container'}>
-            <div style={{ justifyContent: 'center' }}>
-              <StyledImg
-                style={{
-                  paddingBottom: 10,
-                  top: 55,
-                  marginTop: '50px',
-                  alignItems: 'left',
-                  float: 'right',
-                  width: 300,
-                  height: 250,
-                }}
-                src={Group_6375}
-                alt="header"
-              ></StyledImg>
-            </div>
+            <div style={{ justifyContent: 'center' }}></div>
 
             <div style={{ marginTop: '50px' }} className={'vertical-align-middle'}>
               <div style={{ justifyContent: 'center' }} className={'flexbox-container'}>
