@@ -65,6 +65,7 @@ export default function DashBoardComponent() {
             {' '}
             <Headernew></Headernew>
             <StratSection></StratSection>
+            <p style={{ marginTop: '20px', marginBottom: '20px' }}></p>
             <Companytest></Companytest>
             <UserTokenBalance></UserTokenBalance>
           </>

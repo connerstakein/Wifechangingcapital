@@ -13,7 +13,7 @@ const Companytest = () => {
       <>
         <div className={'flexbox-verticalcontainer'}>
           <div className={'flexbox-vertical-container'}>
-            <div style={{ justifyContent: 'left', marginRight: '50px' }}>
+            <div style={{ justifyContent: 'center' }}>
               <StyledImg
                 style={{
                   paddingBottom: 10,
@@ -29,8 +29,8 @@ const Companytest = () => {
               ></StyledImg>
             </div>
 
-            <div style={{ marginLeft: '50px', marginTop: '90px' }} className={'vertical-align-middle'}>
-              <div style={{ justifyContent: 'right' }} className={'flexbox-container'}>
+            <div style={{ marginTop: '50px' }} className={'vertical-align-middle'}>
+              <div style={{ justifyContent: 'center' }} className={'flexbox-container'}>
                 <div style={{ justifyContent: 'center' }} className={'flexbox--vertical-container'}>
                   <p style={{ textAlign: 'center' }}>
                     {' '}
