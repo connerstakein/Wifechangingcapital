@@ -35,19 +35,19 @@
     position: relative;
     top: 100%;
     right: 100%;
-    transform: translate(-30%, 50%)
+    transform: translate(-30%, 100%)
   }
   .MarketCap-mobile {
     position: relative;
     top: 100%;
     right: 100%;
-    transform: translate( -163%, 50%)
+    transform: translate( -163%, 100%)
   }
   .Wallet-mobile {
     position: relative;
     top: 100%;
     right: 100%;
-    transform: translate(203%, 50%)
+    transform: translate(300%, 50%)
   }
   .vertical-align-middle{
     display: table-cell;
