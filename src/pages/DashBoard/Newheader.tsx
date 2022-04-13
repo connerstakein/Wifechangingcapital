@@ -78,7 +78,8 @@ const Headernew = () => {
                   alignItems: 'center',
                   float: 'left',
                   width: 300,
-                  left: 50,
+                  position: 'relative',
+                  left: 100,
                   height: 300,
                   alignSelf: 'center',
                 }}
