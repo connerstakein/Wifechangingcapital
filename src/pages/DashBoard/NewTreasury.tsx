@@ -180,7 +180,7 @@ export default function Treasurysectionnew() {
           </div>
         </div>
         <div className="flexbox-vertical-container">
-          <div className={'flexbox-container'}>
+          <div className={'flexbox-vertical-container'}>
             <div className={'flexbox-vertical-container'}>
               <PurpleCard style={{ marginRight: 50, maxWidth: 400, maxHeight: 250, width: 250, height: 175 }}>
                 <div style={{ marginTop: 25 }}>
