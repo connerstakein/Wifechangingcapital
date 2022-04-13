@@ -17,6 +17,7 @@ const Companytest = () => {
               <StyledImg
                 style={{
                   paddingBottom: 10,
+                  top: 55,
                   marginTop: '50px',
                   alignItems: 'left',
                   float: 'right',

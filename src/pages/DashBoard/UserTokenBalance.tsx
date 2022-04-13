@@ -323,7 +323,7 @@ const UserTokenBalance = () => {
                   <div className="flexbox-container">
                     {' '}
                     <Styledtext>Holders{''}</Styledtext>
-                    {''} <Styledtext1 style={{ position: 'relative', left: 410 }}> {holders} </Styledtext1>
+                    {''} <Styledtext1 style={{ position: 'relative', left: 100 }}> {holders} </Styledtext1>
                   </div>
                 </PurpleCard>
                 <PurpleCard style={{ marginBottom: '10px' }}>
@@ -332,10 +332,10 @@ const UserTokenBalance = () => {
                     <Styledtext>Market Capitalization{''}</Styledtext>
                     {''}
                     <div hidden={loading}>
-                      <Styledtext1 style={{ position: 'relative', left: 225 }}>{MarketCap} </Styledtext1>{' '}
+                      <Styledtext1 style={{ position: 'relative', left: 75 }}>{MarketCap} </Styledtext1>{' '}
                     </div>{' '}
                     {loading ? (
-                      <Spin style={{ position: 'relative', left: 265 }} indicator={antIcon} className="add-spinner" />
+                      <Spin style={{ position: 'relative', left: 120 }} indicator={antIcon} className="add-spinner" />
                     ) : (
                       ''
                     )}
@@ -349,7 +349,7 @@ const UserTokenBalance = () => {
                       <Styledtext1 style={{ position: 'relative', alignSelf: 'right' }}>${TotalLiquidity} </Styledtext1>{' '}
                     </div>{' '}
                     {loading ? (
-                      <Spin style={{ position: 'relative', left: 370 }} indicator={antIcon} className="add-spinner" />
+                      <Spin style={{ position: 'relative', left: 150 }} indicator={antIcon} className="add-spinner" />
                     ) : (
                       ''
                     )}
@@ -360,10 +360,10 @@ const UserTokenBalance = () => {
                     {' '}
                     <Styledtext>$Wife Price {''}</Styledtext>
                     <div hidden={loading}>
-                      <Styledtext1 style={{ position: 'relative', left: 350 }}>${wifeprice} </Styledtext1>{' '}
+                      <Styledtext1 style={{ position: 'relative', left: 200 }}>${wifeprice} </Styledtext1>{' '}
                     </div>{' '}
                     {loading ? (
-                      <Spin style={{ position: 'relative', left: 350 }} indicator={antIcon} className="add-spinner" />
+                      <Spin style={{ position: 'relative', left: 200 }} indicator={antIcon} className="add-spinner" />
                     ) : (
                       ''
                     )}
@@ -376,7 +376,6 @@ const UserTokenBalance = () => {
                   maxWidth: 600,
                   width: 400,
                   position: 'relative',
-                  left: 15,
                   boxShadow: '0px 0px 10px 1px rgba(0,0,0,0.40)',
                 }}
               >
@@ -387,28 +386,28 @@ const UserTokenBalance = () => {
                   <div className="flexbox-container">
                     {' '}
                     <Styledtext>Your Token Balance {''} </Styledtext>
-                    {''} <Styledtext1> {userBalance} </Styledtext1>
+                    {''} <Styledtext1 style={{ position: 'relative', right: 100 }}> {userBalance} </Styledtext1>
                   </div>
                 </PurpleCard>
                 <PurpleCard style={{ marginBottom: '10px' }}>
                   <div className="flexbox-container">
                     {' '}
                     <Styledtext>Your Token Balance Value {''}</Styledtext>
-                    {''} <Styledtext1 style={{ position: 'relative', right: 25 }}> ${YourBalanceValue} </Styledtext1>
+                    {''} <Styledtext1 style={{ position: 'relative', right: 125 }}> ${YourBalanceValue} </Styledtext1>
                   </div>
                 </PurpleCard>
                 <PurpleCard style={{ marginBottom: '10px' }}>
                   <div className="flexbox-container">
                     {' '}
                     <Styledtext>Total Buybacks Done{''}</Styledtext>
-                    {''} <Styledtext1> $11,347 </Styledtext1>
+                    {''} <Styledtext1 style={{ position: 'relative', right: 125 }}> $11,347 </Styledtext1>
                   </div>
                 </PurpleCard>
                 <PurpleCard style={{ marginBottom: '10px' }}>
                   <div className="flexbox-container">
                     {' '}
                     <Styledtext>Treasury Balance{''}</Styledtext>
-                    {''} <Styledtext1> $82,345 </Styledtext1>
+                    {''} <Styledtext1 style={{ position: 'relative', right: 75 }}> $82,345 </Styledtext1>
                   </div>
                 </PurpleCard>
               </PurpleCard>
@@ -482,7 +481,7 @@ const UserTokenBalance = () => {
                                 {' '}
                                 <Styledtext>Liquidity {''}</Styledtext>
                                 <div hidden={loading}>
-                                  <Styledtext1 style={{ position: 'relative', alignSelf: 'right' }}>
+                                  <Styledtext1 style={{ position: 'relative', alignSelf: 'center' }}>
                                     ${TotalLiquidity}{' '}
                                   </Styledtext1>{' '}
                                 </div>{' '}

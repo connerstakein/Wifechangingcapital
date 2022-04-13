@@ -31,7 +31,7 @@ const StratSection = () => {
   if (isMobile)
     return (
       <>
-        <div className={'flexbox-vertical-container'}>
+        <div style={{ marginTop: '50px' }} className={'flexbox-vertical-container'}>
           <StyledHeader>Treasury Strategy</StyledHeader>
           <p></p>
           <p></p>
@@ -47,7 +47,7 @@ const StratSection = () => {
             <PurpleCard style={{ marginRight: 15, maxWidth: 100, maxHeight: 150, width: 100, height: 100 }}>
               <div style={{ marginTop: 15 }}>
                 <img className={'card-icon'} alt="icon" src={Card_ChartIcon}></img>
-                <h1 style={{ color: '#ffffff', fontSize: '22px' }}>Incubation</h1>
+                <h1 style={{ color: '#ffffff', fontSize: '22px', left: 10, top: 15 }}>Incubation</h1>
                 <p style={{ color: '#ffffff', fontSize: '14px' }}>
                   Offering our unique expertise to create game-changing projects
                 </p>
@@ -59,17 +59,17 @@ const StratSection = () => {
             <PurpleCard style={{ maxWidth: 100, maxHeight: 100, width: 100, height: 100 }}>
               <div style={{ marginTop: 15 }}>
                 <img className={'card-icon'} alt="icon" src={Card_BubbleIcon}></img>
-                <h1 style={{ color: '#ffffff', fontSize: '22px' }}>NFTS</h1>
+                <h1 style={{ color: '#ffffff', fontSize: '22px', top: 15 }}>NFTS</h1>
                 <p style={{ color: '#ffffff', fontSize: '14px' }}> We search for the best in quality NFTs available</p>
                 <img className={'img-size'} src={Line_pic} alt="line"></img>
               </div>
             </PurpleCard>
           </div>
           <div className={'flexbox-vertical-container'}>
-            <PurpleCard style={{ marginLeft: 15, maxWidth: 100, maxHeight: 100, width: 100, height: 100 }}>
+            <PurpleCard style={{ marginLeft: 15, maxWidth: 100, maxHeight: 100, width: 100, height: 250 }}>
               <div style={{ marginTop: 15 }}>
                 <img className={'card-icon'} alt="icon" src={Card_GraphIcon}></img>
-                <h1 style={{ color: '#ffffff', fontSize: '22px' }}>Small Caps</h1>
+                <h1 style={{ color: '#ffffff', fontSize: '22px', top: 15 }}>Small Caps</h1>
                 <p style={{ color: '#ffffff', fontSize: '14px' }}>
                   Investing in the Hottest early stage crypto Ventures
                 </p>

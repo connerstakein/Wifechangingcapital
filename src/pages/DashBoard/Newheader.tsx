@@ -71,16 +71,15 @@ const Headernew = () => {
       <>
         <div className={'animate__animated animate__backInRight'}>
           <div className={'flexbox-vertical-container'}>
-            <div style={{ justifyContent: 'right' }}>
+            <div style={{ justifyContent: 'center' }}>
               <StyledImg
                 style={{
                   paddingBottom: 10,
-                  right: 20,
-                  alignItems: 'right',
+                  alignItems: 'center',
                   float: 'left',
-                  width: 200,
+                  width: 300,
                   height: 300,
-                  alignSelf: 'right',
+                  alignSelf: 'center',
                 }}
                 src={coin}
                 alt="header"
