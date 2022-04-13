@@ -7,12 +7,11 @@ import { Web3Provider } from '@ethersproject/providers'
 import { formatEther, formatUnits } from '@ethersproject/units'
 import { useWeb3React } from '@web3-react/core'
 import { Spin } from 'antd'
-import { DarkCard, LightGreyCard } from 'components/Card'
+import { PurpleCard } from 'components/Card'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
-
-import DashWCC from '../../assets/images/DashWCC.png'
+//import Path23 from '../../assets/images/Path23.png'
 const Styledtext = styled.text`
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -20,10 +19,6 @@ const Styledtext = styled.text`
   font-size: 18px;
   text-color: #ffffff;
   font-weight: bold;
-`
-const StyledImg = styled.img`
-  justify-content: 'center';
-  position: relative;
 `
 const Styledtext1 = styled.text`
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
@@ -282,43 +277,37 @@ const UserTokenBalance = () => {
 
   return (
     <div className={'animate__animated animate__backInRight'}>
-      <div className={'darktext'}>
+      <div className={'whitetext'}>
         <div className={'flexbox-vertical-container'}>
-          <StyledImg
-            style={{ paddingBottom: 10, alignItems: 'center', marginLeft: 100, position: 'relative', left: 100 }}
-            src={DashWCC}
-            height={400}
-            width={800}
-            alt="header"
-          ></StyledImg>
-          <div className={'darktext'}>
+          <div className={'whitetext'}>
             <div className="flexbox-container">
-              <LightGreyCard
+              <PurpleCard
                 style={{
                   maxWidth: 900,
                   width: 600,
                   position: 'relative',
                   right: 15,
+                  marginTop: '75px',
                   boxShadow: '0px 0px 10px 1px rgba(0,0,0,0.40)',
                 }}
               >
                 <h1 style={{ textAlign: 'center', fontWeight: 'bold', fontFamily: 'Geneva, Verdana, sans-serif' }}>
                   Token Statistics{' '}
                 </h1>
-                <DarkCard>
+                <PurpleCard style={{ marginBottom: '10px' }}>
                   <div className="flexbox-container">
                     {' '}
                     <Styledtext>Holders{''}</Styledtext>
                     {''} <Styledtext1 style={{ position: 'relative', left: 410 }}> {holders} </Styledtext1>
                   </div>
-                </DarkCard>
-                <DarkCard>
+                </PurpleCard>
+                <PurpleCard style={{ marginBottom: '10px' }}>
                   <div className="flexbox-container">
                     {' '}
                     <Styledtext>Market Capitalization{''}</Styledtext>
                     {''}
                     <div hidden={loading}>
-                      <Styledtext1 style={{ position: 'relative', left: 250 }}>{MarketCap} </Styledtext1>{' '}
+                      <Styledtext1 style={{ position: 'relative', left: 225 }}>{MarketCap} </Styledtext1>{' '}
                     </div>{' '}
                     {loading ? (
                       <Spin style={{ position: 'relative', left: 265 }} indicator={antIcon} className="add-spinner" />
@@ -326,13 +315,13 @@ const UserTokenBalance = () => {
                       ''
                     )}
                   </div>
-                </DarkCard>
-                <DarkCard>
+                </PurpleCard>
+                <PurpleCard style={{ marginBottom: '10px' }}>
                   <div className="flexbox-container">
                     {' '}
                     <Styledtext>Liquidity {''}</Styledtext>
                     <div hidden={loading}>
-                      <Styledtext1 style={{ position: 'relative', left: 360 }}>{TotalLiquidity} </Styledtext1>{' '}
+                      <Styledtext1 style={{ position: 'relative', left: 360 }}>${TotalLiquidity} </Styledtext1>{' '}
                     </div>{' '}
                     {loading ? (
                       <Spin style={{ position: 'relative', left: 370 }} indicator={antIcon} className="add-spinner" />
@@ -340,8 +329,8 @@ const UserTokenBalance = () => {
                       ''
                     )}
                   </div>
-                </DarkCard>
-                <DarkCard>
+                </PurpleCard>
+                <PurpleCard style={{ marginBottom: '10px' }}>
                   <div className="flexbox-container">
                     {' '}
                     <Styledtext>$Wife Price {''}</Styledtext>
@@ -354,50 +343,51 @@ const UserTokenBalance = () => {
                       ''
                     )}
                   </div>
-                </DarkCard>
-              </LightGreyCard>
+                </PurpleCard>
+              </PurpleCard>
               <p></p>
-              <LightGreyCard
+              <PurpleCard
                 style={{
                   maxWidth: 900,
                   width: 600,
                   position: 'relative',
                   left: 15,
+                  marginTop: '75px',
                   boxShadow: '0px 0px 10px 1px rgba(0,0,0,0.40)',
                 }}
               >
                 <h1 style={{ textAlign: 'center', fontWeight: 'bold', fontFamily: 'Geneva, Verdana, sans-serif' }}>
                   User Statistics
                 </h1>
-                <DarkCard>
+                <PurpleCard style={{ marginBottom: '10px' }}>
                   <div className="flexbox-container">
                     {' '}
                     <Styledtext>Your Token Balance {''} </Styledtext>
                     {''} <Styledtext1> {userBalance} </Styledtext1>
                   </div>
-                </DarkCard>
-                <DarkCard>
+                </PurpleCard>
+                <PurpleCard style={{ marginBottom: '10px' }}>
                   <div className="flexbox-container">
                     {' '}
                     <Styledtext>Your Token Balance Value {''}</Styledtext>
-                    {''} <Styledtext1> {YourBalanceValue} </Styledtext1>
+                    {''} <Styledtext1 style={{ position: 'relative', right: 25 }}> ${YourBalanceValue} </Styledtext1>
                   </div>
-                </DarkCard>
-                <DarkCard>
+                </PurpleCard>
+                <PurpleCard style={{ marginBottom: '10px' }}>
                   <div className="flexbox-container">
                     {' '}
                     <Styledtext>Total Buybacks Done{''}</Styledtext>
                     {''} <Styledtext1> $11,347 </Styledtext1>
                   </div>
-                </DarkCard>
-                <DarkCard>
+                </PurpleCard>
+                <PurpleCard style={{ marginBottom: '10px' }}>
                   <div className="flexbox-container">
                     {' '}
-                    <Styledtext>Total Supply Burned{''}</Styledtext>
-                    {''} <Styledtext1> 4% </Styledtext1>
+                    <Styledtext>Treasury Balance{''}</Styledtext>
+                    {''} <Styledtext1> $82,345 </Styledtext1>
                   </div>
-                </DarkCard>
-              </LightGreyCard>
+                </PurpleCard>
+              </PurpleCard>
             </div>
           </div>
         </div>

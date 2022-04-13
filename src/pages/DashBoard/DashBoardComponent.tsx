@@ -4,11 +4,15 @@ import { SupportedChainId } from 'constants/chains'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import styled from 'styled-components/macro'
 
-import { DarkCard } from '../../components/Card'
-import BuybackTable from './BuyBack'
+import Path20 from '../../assets/images/Path20.png'
+import Path23 from '../../assets/images/Path23.png'
+import { PurpleCard } from '../../components/Card'
+import Companytest from './CitySection'
+import Headernew from './Newheader'
+import StratSection from './Strategy'
+import UserTokenBalance from './UserTokenBalance'
 //import NFTtable from './NFT'
 //import ClaimTransaction from './ClaimTransaction'
-import UserTokenBalance from './UserTokenBalance'
 //import UserTokenStats from './Userstats'
 //import CompanyMetrics from "../../components/CompanyMetrics"
 export default function DashBoardComponent() {
@@ -22,7 +26,7 @@ export default function DashBoardComponent() {
   `
   if (isNotOnMainnet) {
     return (
-      <DarkCard
+      <PurpleCard
         style={{
           fontSize: '20px',
           fontWeight: 'bold',
@@ -31,15 +35,15 @@ export default function DashBoardComponent() {
         }}
       >
         {' '}
-        <div className={'darktext'}>
+        <div className={'whitetext'}>
           <StyledText style={{ justifyContent: 'center' }}> Please Connect to Ethereum Mainnet</StyledText>{' '}
         </div>
-      </DarkCard>
+      </PurpleCard>
     )
   } else {
     if (showConnectAWallet) {
       return (
-        <DarkCard
+        <PurpleCard
           style={{
             fontSize: '20px',
             fontWeight: 'bold',
@@ -48,24 +52,25 @@ export default function DashBoardComponent() {
           }}
         >
           {' '}
-          <div className={'darktext'}>
+          <div className={'whitetext'}>
             <StyledText style={{ justifyContent: 'center' }}> Connect a wallet to continue </StyledText>{' '}
           </div>
-        </DarkCard>
+        </PurpleCard>
       )
     } else {
       return (
         <>
-          <video id="background-video" loop autoPlay>
-            <source src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4" />
-            <source src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/ogg" />
-            Your browser does not support the video tag.
-          </video>
-          <div className={'flexbox-vertical-container'}>
-            <UserTokenBalance></UserTokenBalance>
-            <p></p>
-            <BuybackTable></BuybackTable>
+          <Headernew></Headernew>
+
+          <div className={'testimage'} style={{ backgroundImage: `url(${Path23})`, width: '100vw' }}>
+            <div style={{ justifyContent: 'center' }}>
+              <StratSection></StratSection>
+            </div>
           </div>
+          <div className={'testbottomimage'} style={{ backgroundImage: `url(${Path20})`, width: '100vw' }}>
+            <Companytest></Companytest>
+          </div>
+          <UserTokenBalance></UserTokenBalance>
         </>
       )
     }

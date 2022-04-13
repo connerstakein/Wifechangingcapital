@@ -33,6 +33,20 @@ export const DarkCard = styled(Card)`
   border-radius: 4px;
   border-image: linear-gradient(45deg, rgb(122, 9, 125), rgb(219, 0, 48), rgb(179, 2, 181)) 1;
 `
+export const PurpleCard = styled(Card)`
+  border-style: solid;
+  border-width: 1px;
+  background-color: #330a63;
+  border-color: rgba(255, 255, 255, 0.582);
+  border-radius: 10px;
+`
+export const PinkTableCard = styled(Card)`
+  border-style: solid;
+  background-color: #ffffff;
+  border-width: 1px;
+  border-radius: 25px;
+  border-color: black;
+`
 
 export const OutlineCard = styled(Card)`
   border: 1px solid ${({ theme }) => theme.bg3};
