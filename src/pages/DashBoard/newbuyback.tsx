@@ -25,7 +25,7 @@ export default function BuybackTablenew() {
         </div>
         <div className={'darktext'}>
           <div className="flex-container">
-            <h3 style={{ marginLeft: '10px' }}> 2022-03-29</h3>
+            <div style={{ marginLeft: '10px' }}> 2022-03-29</div>
             <div style={{ marginLeft: '10px' }}>$2344</div>
             <div>519,722 </div>
             <div>0.05%</div>
@@ -38,7 +38,7 @@ export default function BuybackTablenew() {
           </div>
           <p></p>
           <div className="flex-container">
-            <h3 style={{ marginLeft: '10px' }}> 2022-03-29</h3>
+            <div style={{ marginLeft: '10px' }}> 2022-03-29</div>
             <div style={{ marginLeft: '10px' }}>$1,147</div>
             <div>900,000</div>
             <div>0.09%</div>
@@ -51,7 +51,7 @@ export default function BuybackTablenew() {
           </div>
           <p></p>
           <div className="flex-container">
-            <h3 style={{ marginLeft: '10px' }}> 2022-03-29</h3>
+            <div style={{ marginLeft: '10px' }}> 2022-03-29</div>
             <div style={{ marginLeft: '10px' }}>$1,447</div>
             <div>900,000</div>
             <div>0.09%</div>
@@ -63,7 +63,7 @@ export default function BuybackTablenew() {
           </div>
           <p></p>
           <div className="flex-container">
-            <h3 style={{ marginLeft: '10px' }}> 2022-03-29</h3>
+            <div style={{ marginLeft: '10px' }}> 2022-03-29</div>
             <div style={{ marginLeft: '10px' }}>$1,692</div>
             <div>514,000</div>
             <div>0.05</div>
@@ -76,7 +76,7 @@ export default function BuybackTablenew() {
           </div>
           <p></p>
           <div className="flex-container">
-            <h3 style={{ marginLeft: '10px' }}> 2022-03-29</h3>
+            <div style={{ marginLeft: '10px' }}> 2022-03-29</div>
             <div style={{ marginLeft: '10px' }}>$1,751</div>
             <div>950,000</div>
             <div>0.095%</div>
@@ -89,7 +89,7 @@ export default function BuybackTablenew() {
           </div>
           <p></p>
           <div className="flex-container">
-            <h3 style={{ marginLeft: '10px' }}> 2022-04-03</h3>
+            <div style={{ marginLeft: '10px' }}> 2022-04-03</div>
             <div style={{ marginLeft: '10px' }}>$2686</div>
             <div>1,000,000</div>
             <div>1%</div>

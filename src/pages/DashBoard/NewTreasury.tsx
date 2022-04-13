@@ -160,11 +160,11 @@ export default function Treasurysectionnew() {
   if (isMobile)
     return (
       <>
-        <div className={'flexbox-vertical-container'}>
+        <div style={{ justifyContent: 'center' }} className={'flexbox-vertical-container'}>
           <div className={'flexbox-vertical-container'}>
             <div className={'center-icon-mobile'}>
               <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-                <img className={'card-icon-mobile'} src={Assets_icon} alt="Assets"></img>
+                <img className={'card-icon'} src={Assets_icon} alt="Assets"></img>
               </LightPurpleCard>
             </div>
             <div className={'MarketCap-mobile'}>
@@ -174,7 +174,7 @@ export default function Treasurysectionnew() {
             </div>
             <div className={'Wallet-mobile'}>
               <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-                <img className={'card-icon-mobile'} src={Wallet_icon} alt="Walletimg"></img>
+                <img className={'card-icon'} src={Wallet_icon} alt="Walletimg"></img>
               </LightPurpleCard>
             </div>
           </div>
