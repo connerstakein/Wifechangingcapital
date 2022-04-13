@@ -255,7 +255,7 @@ export default function Header() {
   //{React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
   return (
     <>
-      <HeaderFrame showBackground={scrollY > 1005}>
+      <HeaderFrame showBackground={false}>
         <UniIcon>
           <Logo src={mcdegenlogo} alt="logo" width="50px" height="100%"></Logo>
         </UniIcon>

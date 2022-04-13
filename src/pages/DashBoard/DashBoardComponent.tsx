@@ -9,9 +9,11 @@ import Path23 from '../../assets/images/Path23.png'
 import { PurpleCard } from '../../components/Card'
 import { isMobile } from '../../utils/userAgent'
 import Companytest from './CitySection'
+import BuyBackTablenew from './newbuyback'
 import Headernew from './Newheader'
+import Treasurysectionnew from './NewTreasury'
 import StratSection from './Strategy'
-import UserTokenBalance from './UserTokenBalance'
+//import UserTokenBalance from './UserTokenBalance'
 //import NFTtable from './NFT'
 //import ClaimTransaction from './ClaimTransaction'
 //import UserTokenStats from './Userstats'
@@ -37,7 +39,10 @@ export default function DashBoardComponent() {
       >
         {' '}
         <div className={'whitetext'}>
-          <StyledText style={{ justifyContent: 'center' }}> Please Connect to Ethereum Mainnet</StyledText>{' '}
+          <StyledText style={{ justifyContent: 'center', marginTop: '20px' }}>
+            {' '}
+            Please Connect to Ethereum Mainnet
+          </StyledText>{' '}
         </div>
       </PurpleCard>
     )
@@ -54,7 +59,10 @@ export default function DashBoardComponent() {
         >
           {' '}
           <div className={'whitetext'}>
-            <StyledText style={{ justifyContent: 'center' }}> Connect a wallet to continue </StyledText>{' '}
+            <StyledText style={{ justifyContent: 'center', marginTop: '20px' }}>
+              {' '}
+              Connect a wallet to continue{' '}
+            </StyledText>{' '}
           </div>
         </PurpleCard>
       )
@@ -67,7 +75,7 @@ export default function DashBoardComponent() {
             <StratSection></StratSection>
             <p style={{ marginTop: '20px', marginBottom: '20px' }}></p>
             <Companytest></Companytest>
-            <UserTokenBalance></UserTokenBalance>
+            <BuyBackTablenew></BuyBackTablenew>
           </>
         )
       } else {
@@ -82,7 +90,10 @@ export default function DashBoardComponent() {
             <div className={'testbottomimage'} style={{ backgroundImage: `url(${Path20})`, width: '100vw' }}>
               <Companytest></Companytest>
             </div>
-            <UserTokenBalance></UserTokenBalance>
+
+            <Treasurysectionnew></Treasurysectionnew>
+
+            <BuyBackTablenew></BuyBackTablenew>
           </>
         )
       }

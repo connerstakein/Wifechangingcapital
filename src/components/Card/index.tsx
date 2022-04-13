@@ -40,6 +40,14 @@ export const PurpleCard = styled(Card)`
   border-color: rgba(255, 255, 255, 0.582);
   border-radius: 10px;
 `
+export const LightPurpleCard = styled(Card)`
+  border-style: solid;
+  border-width: 1px;
+  background-color: #330a63;
+  border-color: rgba(255, 255, 255, 0.582);
+  border-radius: 10px;
+  background-color: #9262c7;
+`
 export const PinkTableCard = styled(Card)`
   border-style: solid;
   background-color: #ffffff;

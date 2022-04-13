@@ -5,10 +5,31 @@
     text-align: center;
   }
   .darktext {
-    color: #000000
+    color: #000000;
+    font-weight: 700;
   }
   .whitetext {
-    color: #ffffff
+    color: #ffffff;
+    font-weight: 700;
+
+  }
+  .center-icon {
+    position: relative;
+    top: -50%;
+    right: 150%;
+    transform: translate(-30%, 50%)
+  }
+  .MarketCap {
+    position: relative;
+    top: -50%;
+    right: -150%;
+    transform: translate( -163%, 50%)
+  }
+  .Wallet {
+    position: relative;
+    top: -50%;
+    right: 150%;
+    transform: translate(203%, 50%)
   }
   .vertical-align-middle{
     display: table-cell;
@@ -100,11 +121,53 @@
     display: flex;
     flex-direction: row;
 }
+
 .flexbox-container-small {
   display: flex;
   flex-direction: row;
   max-width: fit-content;
   width: '100%'
+}
+.flex-container {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  max-height: 35px;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #000000;
+
+}
+
+.flex-container > div {
+  background-color: #f3cce9;
+  height: 35px;
+  width: 100px;
+  box-shadow: -2px 5px 17px 5px rgba(0,0,0,0.31);
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 5px;
+  margin: 10px;
+  align-items: center;
+  text-align: center;
+  line-height: 35px;
+  font-size: 15px;
+}
+.flexbox-container-align {
+  display: flex;
+  max-height: 35px;
+  align-items: center;
+  flex-direction: row;
+
+}
+.flexbox-container-align > div {
+  margin-right: 3px;
+  align-items: center;
+  text-align: center;
+  line-height: 35px;
+  font-size: 15px;
+  height: 35px;
+  width: 100px;
 }
 .flexbox-vertical-container {
   display: flex;
