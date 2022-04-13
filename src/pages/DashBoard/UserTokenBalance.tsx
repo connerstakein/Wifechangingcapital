@@ -309,10 +309,9 @@ const UserTokenBalance = () => {
             <div className="flexbox-vertical-container">
               <PurpleCard
                 style={{
-                  maxWidth: 900,
-                  width: 600,
+                  maxWidth: 600,
+                  width: 400,
                   position: 'relative',
-                  right: 15,
                   marginTop: '75px',
                   boxShadow: '0px 0px 10px 1px rgba(0,0,0,0.40)',
                 }}
@@ -343,11 +342,11 @@ const UserTokenBalance = () => {
                   </div>
                 </PurpleCard>
                 <PurpleCard style={{ marginBottom: '10px' }}>
-                  <div className="flexbox-container">
+                  <div style={{ justifyContent: 'right', textAlign: 'right' }} className="flexbox-container">
                     {' '}
                     <Styledtext>Liquidity {''}</Styledtext>
                     <div hidden={loading}>
-                      <Styledtext1 style={{ position: 'relative', left: 360 }}>${TotalLiquidity} </Styledtext1>{' '}
+                      <Styledtext1 style={{ position: 'relative', alignSelf: 'right' }}>${TotalLiquidity} </Styledtext1>{' '}
                     </div>{' '}
                     {loading ? (
                       <Spin style={{ position: 'relative', left: 370 }} indicator={antIcon} className="add-spinner" />
@@ -374,11 +373,10 @@ const UserTokenBalance = () => {
               <p></p>
               <PurpleCard
                 style={{
-                  maxWidth: 900,
-                  width: 600,
+                  maxWidth: 600,
+                  width: 400,
                   position: 'relative',
                   left: 15,
-                  marginTop: '75px',
                   boxShadow: '0px 0px 10px 1px rgba(0,0,0,0.40)',
                 }}
               >
@@ -477,11 +475,14 @@ const UserTokenBalance = () => {
                               </div>
                             </PurpleCard>
                             <PurpleCard style={{ marginBottom: '10px' }}>
-                              <div className="flexbox-container">
+                              <div
+                                style={{ justifyContent: 'right', textAlign: 'right' }}
+                                className="flexbox-container"
+                              >
                                 {' '}
                                 <Styledtext>Liquidity {''}</Styledtext>
                                 <div hidden={loading}>
-                                  <Styledtext1 style={{ position: 'relative', left: 360 }}>
+                                  <Styledtext1 style={{ position: 'relative', alignSelf: 'right' }}>
                                     ${TotalLiquidity}{' '}
                                   </Styledtext1>{' '}
                                 </div>{' '}

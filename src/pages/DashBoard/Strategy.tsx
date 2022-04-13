@@ -44,8 +44,8 @@ const StratSection = () => {
         </div>
         <div className={'flexbox-container'}>
           <div className={'flexbox-vertical-container'}>
-            <PurpleCard style={{ marginRight: 25, maxWidth: 250, maxHeight: 250, width: 250, height: 250 }}>
-              <div style={{ marginTop: 25 }}>
+            <PurpleCard style={{ marginRight: 15, maxWidth: 100, maxHeight: 150, width: 100, height: 100 }}>
+              <div style={{ marginTop: 15 }}>
                 <img className={'card-icon'} alt="icon" src={Card_ChartIcon}></img>
                 <h1 style={{ color: '#ffffff', fontSize: '22px' }}>Incubation</h1>
                 <p style={{ color: '#ffffff', fontSize: '14px' }}>
@@ -56,8 +56,8 @@ const StratSection = () => {
             </PurpleCard>
           </div>
           <div className={'flexbox-vertical-container'}>
-            <PurpleCard style={{ maxWidth: 250, maxHeight: 250, width: 250, height: 250 }}>
-              <div style={{ marginTop: 25 }}>
+            <PurpleCard style={{ maxWidth: 100, maxHeight: 100, width: 100, height: 100 }}>
+              <div style={{ marginTop: 15 }}>
                 <img className={'card-icon'} alt="icon" src={Card_BubbleIcon}></img>
                 <h1 style={{ color: '#ffffff', fontSize: '22px' }}>NFTS</h1>
                 <p style={{ color: '#ffffff', fontSize: '14px' }}> We search for the best in quality NFTs available</p>
@@ -66,8 +66,8 @@ const StratSection = () => {
             </PurpleCard>
           </div>
           <div className={'flexbox-vertical-container'}>
-            <PurpleCard style={{ marginLeft: 25, maxWidth: 250, maxHeight: 250, width: 250, height: 250 }}>
-              <div style={{ marginTop: 25 }}>
+            <PurpleCard style={{ marginLeft: 15, maxWidth: 100, maxHeight: 100, width: 100, height: 100 }}>
+              <div style={{ marginTop: 15 }}>
                 <img className={'card-icon'} alt="icon" src={Card_GraphIcon}></img>
                 <h1 style={{ color: '#ffffff', fontSize: '22px' }}>Small Caps</h1>
                 <p style={{ color: '#ffffff', fontSize: '14px' }}>

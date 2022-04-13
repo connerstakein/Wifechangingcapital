@@ -71,14 +71,15 @@ const Headernew = () => {
       <>
         <div className={'animate__animated animate__backInRight'}>
           <div className={'flexbox-vertical-container'}>
-            <div style={{ justifyContent: 'right', marginRight: '50px' }}>
+            <div style={{ justifyContent: 'right' }}>
               <StyledImg
                 style={{
                   paddingBottom: 10,
+                  right: 20,
                   alignItems: 'right',
                   float: 'left',
-                  width: 300,
-                  height: 200,
+                  width: 200,
+                  height: 300,
                   alignSelf: 'right',
                 }}
                 src={coin}
@@ -86,7 +87,7 @@ const Headernew = () => {
               ></StyledImg>
             </div>
             <div style={{ marginTop: '80px' }} className="flexbox-vertical-container">
-              <div className="flexbox-container">
+              <div className="flexbox-vertical-container">
                 <div className="flexbox-container">
                   <StyledHeaderText1> Change your</StyledHeaderText1> <StyledHeaderText2>wife</StyledHeaderText2>
                 </div>
