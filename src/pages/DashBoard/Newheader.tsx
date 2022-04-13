@@ -64,6 +64,7 @@ const StyledHeaderText2 = styled.text`
 `
 const StyledImg = styled.img`
   justify-content: 'center';
+  mergin-right: '50px';
 `
 const Headernew = () => {
   if (isMobile)

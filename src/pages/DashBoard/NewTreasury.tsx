@@ -160,7 +160,7 @@ export default function Treasurysectionnew() {
   if (isMobile)
     return (
       <>
-        <div style={{ justifyContent: 'center' }} className={'flexbox-vertical-container'}>
+        <div style={{ justifyContent: 'center', marginLeft: '50px' }} className={'flexbox-vertical-container'}>
           <div className={'flexbox-vertical-container'}>
             <div className={'center-icon-mobile'}>
               <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
