@@ -7,6 +7,7 @@ import styled from 'styled-components/macro'
 import Path20 from '../../assets/images/Path20.png'
 import Path23 from '../../assets/images/Path23.png'
 import { PurpleCard } from '../../components/Card'
+import { isMobile } from '../../utils/userAgent'
 import Companytest from './CitySection'
 import Headernew from './Newheader'
 import StratSection from './Strategy'
@@ -58,21 +59,32 @@ export default function DashBoardComponent() {
         </PurpleCard>
       )
     } else {
-      return (
-        <>
-          <Headernew></Headernew>
-
-          <div className={'testimage'} style={{ backgroundImage: `url(${Path23})`, width: '100vw' }}>
-            <div style={{ justifyContent: 'center' }}>
-              <StratSection></StratSection>
-            </div>
-          </div>
-          <div className={'testbottomimage'} style={{ backgroundImage: `url(${Path20})`, width: '100vw' }}>
+      if (isMobile) {
+        return (
+          <>
+            {' '}
+            <Headernew></Headernew>
+            <StratSection></StratSection>
             <Companytest></Companytest>
-          </div>
-          <UserTokenBalance></UserTokenBalance>
-        </>
-      )
+            <UserTokenBalance></UserTokenBalance>
+          </>
+        )
+      } else {
+        return (
+          <>
+            <Headernew></Headernew>
+            <div className={'testimage'} style={{ backgroundImage: `url(${Path23})`, width: '100vw' }}>
+              <div style={{ justifyContent: 'center' }}>
+                <StratSection></StratSection>
+              </div>
+            </div>
+            <div className={'testbottomimage'} style={{ backgroundImage: `url(${Path20})`, width: '100vw' }}>
+              <Companytest></Companytest>
+            </div>
+            <UserTokenBalance></UserTokenBalance>
+          </>
+        )
+      }
     }
   }
 }

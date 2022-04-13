@@ -5,12 +5,16 @@ import { LoadingOutlined } from '@ant-design/icons'
 import { Contract } from '@ethersproject/contracts'
 import { Web3Provider } from '@ethersproject/providers'
 import { formatEther, formatUnits } from '@ethersproject/units'
+import useScrollPosition from '@react-hook/window-scroll'
 import { useWeb3React } from '@web3-react/core'
 import { Spin } from 'antd'
 import { PurpleCard } from 'components/Card'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import React, { useEffect, useState } from 'react'
+import { animated, useTransition } from 'react-spring'
 import styled from 'styled-components/macro'
+
+import { isMobile } from '../../utils/userAgent'
 //import Path23 from '../../assets/images/Path23.png'
 const Styledtext = styled.text`
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
@@ -42,6 +46,16 @@ const UserTokenBalance = () => {
   const [SHIReserve0, setSHIReserve0] = useState(Number)
   const [SHIReserve1, setSHIReserve1] = useState(Number)
   const [holders, setholders] = useState(Number)
+  const [hidden, sethidden] = useState(Boolean)
+  const ScrollY = useScrollPosition()
+  const transitions = useTransition(!hidden, null, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: { duration: 2000 },
+    delay: 2,
+  })
+
   //const [MriPrice, setMriPrice] = useState(Number)
   const context = useWeb3React()
   const { library } = context
@@ -211,6 +225,19 @@ const UserTokenBalance = () => {
       }
     }
 
+    async function Ishidden() {
+      if (ScrollY < 30) {
+        return sethidden(false)
+      } else {
+        try {
+          return sethidden(false)
+        } catch (error) {
+          console.log(error)
+        } finally {
+        }
+      }
+    }
+    Ishidden()
     FetchReserve1()
       .then((result) => formatUnits(result))
       .then((result) => JSON.parse(result))
@@ -240,7 +267,7 @@ const UserTokenBalance = () => {
       .then((result) => setSHIReserve0(result))
 
     FetchHolders().then((result) => setholders(result))
-  }, [account, showConnectAWallet, library.provider])
+  }, [account, showConnectAWallet, library.provider, ScrollY])
 
   const WifePrice = Reserve0 / Reserve1
   const WifePriceinUsd = WifePrice / 1000000
@@ -274,9 +301,8 @@ const UserTokenBalance = () => {
   //const MRIInvestmentValue = MriPrice * 89465
   //const InvestmentValue = SHIinvestmentValue + MRIInvestmentValue
   //const FormatedInvestmentValue = InvestmentValue.toFixed(1)
-
-  return (
-    <div className={'animate__animated animate__backInRight'}>
+  if (isMobile)
+    return (
       <div className={'whitetext'}>
         <div className={'flexbox-vertical-container'}>
           <div className={'whitetext'}>
@@ -392,7 +418,165 @@ const UserTokenBalance = () => {
           </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  else
+    return (
+      <>
+        {transitions.map(
+          ({ item, key, props }) =>
+            item && (
+              <animated.div style={props} key={key}>
+                <div className={'animate__animated animate__animate__fadeInDown'}>
+                  <div className={'whitetext'}>
+                    <div className={'flexbox-vertical-container'}>
+                      <div className={'whitetext'}>
+                        <div className="flexbox-container">
+                          <PurpleCard
+                            style={{
+                              maxWidth: 900,
+                              width: 600,
+                              position: 'relative',
+                              right: 15,
+                              marginTop: '75px',
+                              boxShadow: '0px 0px 10px 1px rgba(0,0,0,0.40)',
+                            }}
+                          >
+                            <h1
+                              style={{
+                                textAlign: 'center',
+                                fontWeight: 'bold',
+                                fontFamily: 'Geneva, Verdana, sans-serif',
+                              }}
+                            >
+                              Token Statistics{' '}
+                            </h1>
+                            <PurpleCard style={{ marginBottom: '10px' }}>
+                              <div className="flexbox-container">
+                                {' '}
+                                <Styledtext>Holders{''}</Styledtext>
+                                {''} <Styledtext1 style={{ position: 'relative', left: 410 }}> {holders} </Styledtext1>
+                              </div>
+                            </PurpleCard>
+                            <PurpleCard style={{ marginBottom: '10px' }}>
+                              <div className="flexbox-container">
+                                {' '}
+                                <Styledtext>Market Capitalization{''}</Styledtext>
+                                {''}
+                                <div hidden={loading}>
+                                  <Styledtext1 style={{ position: 'relative', left: 225 }}>{MarketCap} </Styledtext1>{' '}
+                                </div>{' '}
+                                {loading ? (
+                                  <Spin
+                                    style={{ position: 'relative', left: 265 }}
+                                    indicator={antIcon}
+                                    className="add-spinner"
+                                  />
+                                ) : (
+                                  ''
+                                )}
+                              </div>
+                            </PurpleCard>
+                            <PurpleCard style={{ marginBottom: '10px' }}>
+                              <div className="flexbox-container">
+                                {' '}
+                                <Styledtext>Liquidity {''}</Styledtext>
+                                <div hidden={loading}>
+                                  <Styledtext1 style={{ position: 'relative', left: 360 }}>
+                                    ${TotalLiquidity}{' '}
+                                  </Styledtext1>{' '}
+                                </div>{' '}
+                                {loading ? (
+                                  <Spin
+                                    style={{ position: 'relative', left: 370 }}
+                                    indicator={antIcon}
+                                    className="add-spinner"
+                                  />
+                                ) : (
+                                  ''
+                                )}
+                              </div>
+                            </PurpleCard>
+                            <PurpleCard style={{ marginBottom: '10px' }}>
+                              <div className="flexbox-container">
+                                {' '}
+                                <Styledtext>$Wife Price {''}</Styledtext>
+                                <div hidden={loading}>
+                                  <Styledtext1 style={{ position: 'relative', left: 350 }}>${wifeprice} </Styledtext1>{' '}
+                                </div>{' '}
+                                {loading ? (
+                                  <Spin
+                                    style={{ position: 'relative', left: 350 }}
+                                    indicator={antIcon}
+                                    className="add-spinner"
+                                  />
+                                ) : (
+                                  ''
+                                )}
+                              </div>
+                            </PurpleCard>
+                          </PurpleCard>
+                          <p></p>
+                          <PurpleCard
+                            style={{
+                              maxWidth: 900,
+                              width: 600,
+                              position: 'relative',
+                              left: 15,
+                              marginTop: '75px',
+                              boxShadow: '0px 0px 10px 1px rgba(0,0,0,0.40)',
+                            }}
+                          >
+                            <h1
+                              style={{
+                                textAlign: 'center',
+                                fontWeight: 'bold',
+                                fontFamily: 'Geneva, Verdana, sans-serif',
+                              }}
+                            >
+                              User Statistics
+                            </h1>
+                            <PurpleCard style={{ marginBottom: '10px' }}>
+                              <div className="flexbox-container">
+                                {' '}
+                                <Styledtext>Your Token Balance {''} </Styledtext>
+                                {''} <Styledtext1> {userBalance} </Styledtext1>
+                              </div>
+                            </PurpleCard>
+                            <PurpleCard style={{ marginBottom: '10px' }}>
+                              <div className="flexbox-container">
+                                {' '}
+                                <Styledtext>Your Token Balance Value {''}</Styledtext>
+                                {''}{' '}
+                                <Styledtext1 style={{ position: 'relative', right: 25 }}>
+                                  {' '}
+                                  ${YourBalanceValue}{' '}
+                                </Styledtext1>
+                              </div>
+                            </PurpleCard>
+                            <PurpleCard style={{ marginBottom: '10px' }}>
+                              <div className="flexbox-container">
+                                {' '}
+                                <Styledtext>Total Buybacks Done{''}</Styledtext>
+                                {''} <Styledtext1> $11,347 </Styledtext1>
+                              </div>
+                            </PurpleCard>
+                            <PurpleCard style={{ marginBottom: '10px' }}>
+                              <div className="flexbox-container">
+                                {' '}
+                                <Styledtext>Treasury Balance{''}</Styledtext>
+                                {''} <Styledtext1> $82,345 </Styledtext1>
+                              </div>
+                            </PurpleCard>
+                          </PurpleCard>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </animated.div>
+            )
+        )}
+      </>
+    )
 }
 export default UserTokenBalance
