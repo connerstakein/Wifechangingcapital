@@ -31,7 +31,7 @@ const StratSection = () => {
   if (isMobile)
     return (
       <>
-        <div style={{ marginTop: '50px' }} className={'flexbox-vertical-container'}>
+        <div style={{ marginTop: '50px', marginBottom: '50px' }} className={'flexbox-vertical-container'}>
           <StyledHeader>Treasury Strategy</StyledHeader>
           <p></p>
           <p></p>
@@ -47,7 +47,7 @@ const StratSection = () => {
             <PurpleCard style={{ marginRight: 15, maxWidth: 100, maxHeight: 150, width: 100, height: 100 }}>
               <div style={{ marginTop: 15 }}>
                 <img className={'card-icon'} alt="icon" src={Card_ChartIcon}></img>
-                <h1 style={{ color: '#ffffff', fontSize: '22px', left: 10, top: 15 }}>Incubation</h1>
+                <h1 style={{ color: '#ffffff', fontSize: '22px', right: 10, top: 15 }}>Incubation</h1>
                 <p style={{ color: '#ffffff', fontSize: '14px' }}>
                   Offering our unique expertise to create game-changing projects
                 </p>

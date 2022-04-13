@@ -11,7 +11,12 @@ const Companytest = () => {
   if (isMobile)
     return (
       <>
-        <div className={'flexbox-verticalcontainer'}>
+        <div
+          style={{
+            top: 55,
+            marginTop: '50px',
+          }}
+        >
           <div className={'flexbox-vertical-container'}>
             <div style={{ justifyContent: 'center' }}>
               <StyledImg
@@ -41,7 +46,7 @@ const Companytest = () => {
                     farmers on tractors. IF you think this applies to you, this is where you belong.
                     <div className={'flexbox-container'}>
                       <div className={'flexbox--vertical-container'}>
-                        <div style={{ marginLeft: '75px', textAlign: 'left', justifyContent: 'left' }}>
+                        <div style={{ marginLeft: '25px', textAlign: 'left', justifyContent: 'left' }}>
                           <h2 style={{ justifyContent: 'left', textAlign: 'left', marginRight: '50px' }}> 100M </h2>{' '}
                           <p style={{ textAlign: 'left', marginRight: '50px', fontSize: '12px' }}> Total Supply </p>
                         </div>
