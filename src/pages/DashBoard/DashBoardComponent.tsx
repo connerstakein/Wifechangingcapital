@@ -75,6 +75,7 @@ export default function DashBoardComponent() {
             <StratSection></StratSection>
             <p style={{ marginTop: '20px', marginBottom: '20px' }}></p>
             <Companytest></Companytest>
+            <Treasurysectionnew></Treasurysectionnew>
             <BuyBackTablenew></BuyBackTablenew>
           </>
         )
