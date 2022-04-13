@@ -267,7 +267,7 @@ const UserTokenBalance = () => {
       .then((result) => setSHIReserve0(result))
 
     FetchHolders().then((result) => setholders(result))
-  }, [account, showConnectAWallet, library.provider, ScrollY])
+  }, [account, showConnectAWallet, library.provider])
 
   const WifePrice = Reserve0 / Reserve1
   const WifePriceinUsd = WifePrice / 1000000
@@ -306,7 +306,7 @@ const UserTokenBalance = () => {
       <div className={'whitetext'}>
         <div className={'flexbox-vertical-container'}>
           <div className={'whitetext'}>
-            <div className="flexbox-container">
+            <div className="flexbox-vertical-container">
               <PurpleCard
                 style={{
                   maxWidth: 900,

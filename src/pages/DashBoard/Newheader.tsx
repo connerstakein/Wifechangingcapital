@@ -77,16 +77,16 @@ const Headernew = () => {
                   paddingBottom: 10,
                   alignItems: 'right',
                   float: 'left',
-                  width: 550,
-                  height: 550,
+                  width: 300,
+                  height: 200,
                   alignSelf: 'right',
                 }}
                 src={coin}
                 alt="header"
               ></StyledImg>
             </div>
-            <div style={{ marginTop: '80px' }} className="flexbox-vertical-container-left">
-              <div className="flexbox-container-left">
+            <div style={{ marginTop: '80px' }} className="flexbox-vertical-container">
+              <div className="flexbox-container">
                 <div className="flexbox-container">
                   <StyledHeaderText1> Change your</StyledHeaderText1> <StyledHeaderText2>wife</StyledHeaderText2>
                 </div>

@@ -11,8 +11,8 @@ const Companytest = () => {
   if (isMobile)
     return (
       <>
-        <div className={'flexbox-vertical-container'}>
-          <div className={'flexbox-container'}>
+        <div className={'flexbox-verticalcontainer'}>
+          <div className={'flexbox-vertical-container'}>
             <div style={{ justifyContent: 'left', marginRight: '50px' }}>
               <StyledImg
                 style={{
@@ -20,8 +20,8 @@ const Companytest = () => {
                   marginTop: '50px',
                   alignItems: 'left',
                   float: 'right',
-                  width: 600,
-                  height: 500,
+                  width: 300,
+                  height: 250,
                 }}
                 src={Group_6375}
                 alt="header"
