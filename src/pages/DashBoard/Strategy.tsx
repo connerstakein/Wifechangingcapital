@@ -31,7 +31,7 @@ const StratSection = () => {
   if (isMobile)
     return (
       <>
-        <div style={{ marginTop: '50px', marginBottom: '50px' }} className={'flexbox-vertical-container'}>
+        <div style={{ marginTop: '50px', marginBottom: '150px' }} className={'flexbox-vertical-container'}>
           <StyledHeader>Treasury Strategy</StyledHeader>
           <p></p>
           <p></p>

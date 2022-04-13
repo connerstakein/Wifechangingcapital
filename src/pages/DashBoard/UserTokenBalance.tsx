@@ -354,7 +354,7 @@ const UserTokenBalance = () => {
                     {' '}
                     <Styledmobiletext>Liquidity {''}</Styledmobiletext>
                     <div hidden={loading}>
-                      <Styledmobiletext style={{ position: 'relative', alignSelf: 'right', left: 100 }}>
+                      <Styledmobiletext style={{ position: 'relative', alignSelf: 'right', left: 250 }}>
                         ${TotalLiquidity}{' '}
                       </Styledmobiletext>{' '}
                     </div>{' '}
@@ -493,12 +493,12 @@ const UserTokenBalance = () => {
                               <div className="flexbox-container">
                                 <Styledtext>Liquidity {''}</Styledtext>
                                 <div hidden={loading}>
-                                  <Styledtext1 style={{ position: 'relative', left: 200 }}>
+                                  <Styledtext1 style={{ position: 'relative', left: 300 }}>
                                     ${TotalLiquidity}{' '}
                                   </Styledtext1>{' '}
                                   {loading ? (
                                     <Spin
-                                      style={{ position: 'relative', left: 200 }}
+                                      style={{ position: 'relative', left: 300 }}
                                       indicator={antIcon}
                                       className="add-spinner"
                                     />

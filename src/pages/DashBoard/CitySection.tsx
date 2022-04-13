@@ -13,7 +13,8 @@ const Companytest = () => {
       <>
         <div
           style={{
-            top: 55,
+            position: 'relative',
+            top: 100,
             marginTop: '50px',
           }}
         >
