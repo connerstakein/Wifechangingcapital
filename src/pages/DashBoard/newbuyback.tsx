@@ -14,7 +14,7 @@ export default function BuybackTablenew() {
     return (
       <>
         <h1> BuyBack Table </h1>
-        <div style={{ marginTop: '30px' }} className={'whitetext'}>
+        <div style={{ marginTop: '30px', maxWidth: '400px' }} className={'whitetext'}>
           <div className="flexbox-container-align">
             <div style={{ marginRight: '120px' }}>Date</div>
             <div style={{ marginRight: '25px' }}> Buyback($)</div>

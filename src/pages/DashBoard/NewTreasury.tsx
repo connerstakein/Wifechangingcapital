@@ -162,19 +162,19 @@ export default function Treasurysectionnew() {
       <>
         <div className={'flexbox-vertical-container'}>
           <div className={'flexbox-vertical-container'}>
-            <div className={'center-icon'}>
+            <div className={'center-icon-mobile'}>
               <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-                <img className={'card-icon'} src={Assets_icon} alt="Assets"></img>
+                <img className={'card-icon-mobile'} src={Assets_icon} alt="Assets"></img>
               </LightPurpleCard>
             </div>
-            <div className={'MarketCap'}>
+            <div className={'MarketCap-mobile'}>
               <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
                 <img className={'card-icon'} src={Currency_icon} alt="Currency"></img>
               </LightPurpleCard>
             </div>
-            <div className={'Wallet'}>
+            <div className={'Wallet-mobile'}>
               <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-                <img className={'card-icon'} src={Wallet_icon} alt="Walletimg"></img>
+                <img className={'card-icon-mobile'} src={Wallet_icon} alt="Walletimg"></img>
               </LightPurpleCard>
             </div>
           </div>
@@ -200,7 +200,7 @@ export default function Treasurysectionnew() {
               </PurpleCard>
             </div>
             <div className={'flexbox-vertical-container'}>
-              <PurpleCard style={{ maxWidth: 400, maxHeight: 250, width: 250, height: 175 }}>
+              <PurpleCard style={{ marginTop: '25px', maxWidth: 400, maxHeight: 250, width: 250, height: 175 }}>
                 <div style={{ marginTop: 25 }}>
                   <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>Holders</h2>
                   <div hidden={loading}>
@@ -217,7 +217,7 @@ export default function Treasurysectionnew() {
               </PurpleCard>
             </div>
             <div className={'flexbox-vertical-container'}>
-              <PurpleCard style={{ marginLeft: 50, maxWidth: 300, maxHeight: 200, width: 250, height: 175 }}>
+              <PurpleCard style={{ marginTop: '25px', maxWidth: 300, maxHeight: 200, width: 250, height: 175 }}>
                 <div style={{ marginTop: 25 }}>
                   <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>MarketCap</h2>
                   <div hidden={loading}>
