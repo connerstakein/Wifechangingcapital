@@ -169,6 +169,48 @@
   height: 35px;
   width: 100px;
 }
+.flex-container {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  max-height: 35px;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #000000;
+
+}
+
+.flex-container-mobile > div {
+  background-color: #f3cce9;
+  height: 35px;
+  width: 100px;
+  max-width: 60vw;
+  box-shadow: -2px 5px 17px 5px rgba(0,0,0,0.31);
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 5px;
+  margin: 10px;
+  align-items: center;
+  text-align: center;
+  line-height: 35px;
+  font-size: 15px;
+}
+.flexbox-container-mobile-align {
+  display: flex;
+  max-height: 35px;
+  align-items: center;
+  flex-direction: row;
+
+}
+.flexbox-container-mobile-align > div {
+  margin-right: 3px;
+  align-items: center;
+  text-align: center;
+  line-height: 35px;
+  font-size: 15px;
+  height: 35px;
+  width: 100px;
+}
 .flexbox-vertical-container {
   display: flex;
   flex-direction: column;

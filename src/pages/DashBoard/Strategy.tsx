@@ -40,9 +40,8 @@ const StratSection = () => {
             Caps, NFTs, and incubate new and innovative ideas. We also engage in consistent Buyback and burns and
             community events.
           </StyledText>
-          <p></p>
         </div>
-        <div className={'flexbox-container'}>
+        <div style={{ position: 'relative', bottom: 75 }} className={'flexbox-container'}>
           <div className={'flexbox-vertical-container'}>
             <PurpleCard style={{ marginRight: 15, maxWidth: 100, maxHeight: 150, width: 100, height: 100 }}>
               <div style={{ marginTop: 15 }}>

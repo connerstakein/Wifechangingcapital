@@ -16,6 +16,7 @@ import Assets_icon from '../../assets/images/Assets_icon.png'
 import Currency_icon from '../../assets/images/Currency_icon.png'
 import Line_pic from '../../assets/images/Line_pic.png'
 import Wallet_icon from '../../assets/images/Wallet_icon.png'
+import { isMobile } from '../../utils/userAgent'
 export default function Treasurysectionnew() {
   //const [loading, setLoading] = useState(false)
   const { account } = useActiveWeb3React()
@@ -156,83 +157,164 @@ export default function Treasurysectionnew() {
   const MarketCap = formatMoney(Marketcap)
 
   console.log(n)
-  return (
-    <>
-      <div className={'flexbox-vertical-container'}>
-        <div className={'flexbox-container'}>
-          <div className={'center-icon'}>
-            <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-              <img className={'card-icon'} src={Assets_icon} alt="Assets"></img>
-            </LightPurpleCard>
-          </div>
-          <div className={'MarketCap'}>
-            <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-              <img className={'card-icon'} src={Currency_icon} alt="Currency"></img>
-            </LightPurpleCard>
-          </div>
-          <div className={'Wallet'}>
-            <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-              <img className={'card-icon'} src={Wallet_icon} alt="Walletimg"></img>
-            </LightPurpleCard>
+  if (isMobile)
+    return (
+      <>
+        <div className={'flexbox-vertical-container'}>
+          <div className={'flexbox-vertical-container'}>
+            <div className={'center-icon'}>
+              <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
+                <img className={'card-icon'} src={Assets_icon} alt="Assets"></img>
+              </LightPurpleCard>
+            </div>
+            <div className={'MarketCap'}>
+              <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
+                <img className={'card-icon'} src={Currency_icon} alt="Currency"></img>
+              </LightPurpleCard>
+            </div>
+            <div className={'Wallet'}>
+              <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
+                <img className={'card-icon'} src={Wallet_icon} alt="Walletimg"></img>
+              </LightPurpleCard>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="flexbox-vertical-container">
-        <div className={'flexbox-container'}>
-          <div className={'flexbox-vertical-container'}>
-            <PurpleCard style={{ marginRight: 50, maxWidth: 400, maxHeight: 250, width: 250, height: 175 }}>
-              <div style={{ marginTop: 25 }}>
-                <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>Liquidity</h2>
-                <div hidden={loading}>
-                  {' '}
-                  <h2 style={{ color: '#ffffff', fontSize: '22px', textAlign: 'right' }}>{TotalLiquidity}</h2>
+        <div className="flexbox-vertical-container">
+          <div className={'flexbox-container'}>
+            <div className={'flexbox-vertical-container'}>
+              <PurpleCard style={{ marginRight: 50, maxWidth: 400, maxHeight: 250, width: 250, height: 175 }}>
+                <div style={{ marginTop: 25 }}>
+                  <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>Liquidity</h2>
+                  <div hidden={loading}>
+                    {' '}
+                    <h2 style={{ color: '#ffffff', fontSize: '22px', textAlign: 'right' }}>{TotalLiquidity}</h2>
+                  </div>
+                  {loading ? (
+                    <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
+                  ) : (
+                    ''
+                  )}
+                  <img className={'img-size'} src={Line_pic} alt="line"></img>
+                  <p></p>
                 </div>
-                {loading ? (
-                  <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
-                ) : (
-                  ''
-                )}
-                <img className={'img-size'} src={Line_pic} alt="line"></img>
-                <p></p>
-              </div>
-            </PurpleCard>
-          </div>
-          <div className={'flexbox-vertical-container'}>
-            <PurpleCard style={{ maxWidth: 400, maxHeight: 250, width: 250, height: 175 }}>
-              <div style={{ marginTop: 25 }}>
-                <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>Holders</h2>
-                <div hidden={loading}>
-                  <h2 style={{ color: '#ffffff', fontSize: '22px', textAlign: 'right' }}>{holders}</h2>
+              </PurpleCard>
+            </div>
+            <div className={'flexbox-vertical-container'}>
+              <PurpleCard style={{ maxWidth: 400, maxHeight: 250, width: 250, height: 175 }}>
+                <div style={{ marginTop: 25 }}>
+                  <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>Holders</h2>
+                  <div hidden={loading}>
+                    <h2 style={{ color: '#ffffff', fontSize: '22px', textAlign: 'right' }}>{holders}</h2>
+                  </div>
+                  {loading ? (
+                    <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
+                  ) : (
+                    ''
+                  )}
+                  <img className={'img-size'} src={Line_pic} alt="line"></img>
+                  <p></p>
                 </div>
-                {loading ? (
-                  <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
-                ) : (
-                  ''
-                )}
-                <img className={'img-size'} src={Line_pic} alt="line"></img>
-                <p></p>
-              </div>
-            </PurpleCard>
-          </div>
-          <div className={'flexbox-vertical-container'}>
-            <PurpleCard style={{ marginLeft: 50, maxWidth: 300, maxHeight: 200, width: 250, height: 175 }}>
-              <div style={{ marginTop: 25 }}>
-                <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>MarketCap</h2>
-                <div hidden={loading}>
-                  <h2 style={{ color: '#ffffff', fontSize: '22px', textAlign: 'right' }}>{MarketCap}</h2>
+              </PurpleCard>
+            </div>
+            <div className={'flexbox-vertical-container'}>
+              <PurpleCard style={{ marginLeft: 50, maxWidth: 300, maxHeight: 200, width: 250, height: 175 }}>
+                <div style={{ marginTop: 25 }}>
+                  <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>MarketCap</h2>
+                  <div hidden={loading}>
+                    <h2 style={{ color: '#ffffff', fontSize: '22px', textAlign: 'right' }}>{MarketCap}</h2>
+                  </div>
+                  {loading ? (
+                    <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
+                  ) : (
+                    ''
+                  )}
+                  <img className={'img-size'} src={Line_pic} alt="line"></img>
+                  <p></p>
                 </div>
-                {loading ? (
-                  <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
-                ) : (
-                  ''
-                )}
-                <img className={'img-size'} src={Line_pic} alt="line"></img>
-                <p></p>
-              </div>
-            </PurpleCard>
+              </PurpleCard>
+            </div>
           </div>
         </div>
-      </div>
-    </>
-  )
+      </>
+    )
+  else
+    return (
+      <>
+        <div className={'flexbox-vertical-container'}>
+          <div className={'flexbox-container'}>
+            <div className={'center-icon'}>
+              <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
+                <img className={'card-icon'} src={Assets_icon} alt="Assets"></img>
+              </LightPurpleCard>
+            </div>
+            <div className={'MarketCap'}>
+              <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
+                <img className={'card-icon'} src={Currency_icon} alt="Currency"></img>
+              </LightPurpleCard>
+            </div>
+            <div className={'Wallet'}>
+              <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
+                <img className={'card-icon'} src={Wallet_icon} alt="Walletimg"></img>
+              </LightPurpleCard>
+            </div>
+          </div>
+        </div>
+        <div className="flexbox-vertical-container">
+          <div className={'flexbox-container'}>
+            <div className={'flexbox-vertical-container'}>
+              <PurpleCard style={{ marginRight: 50, maxWidth: 400, maxHeight: 250, width: 250, height: 175 }}>
+                <div style={{ marginTop: 25 }}>
+                  <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>Liquidity</h2>
+                  <div hidden={loading}>
+                    {' '}
+                    <h2 style={{ color: '#ffffff', fontSize: '22px', textAlign: 'right' }}>{TotalLiquidity}</h2>
+                  </div>
+                  {loading ? (
+                    <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
+                  ) : (
+                    ''
+                  )}
+                  <img className={'img-size'} src={Line_pic} alt="line"></img>
+                  <p></p>
+                </div>
+              </PurpleCard>
+            </div>
+            <div className={'flexbox-vertical-container'}>
+              <PurpleCard style={{ maxWidth: 400, maxHeight: 250, width: 250, height: 175 }}>
+                <div style={{ marginTop: 25 }}>
+                  <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>Holders</h2>
+                  <div hidden={loading}>
+                    <h2 style={{ color: '#ffffff', fontSize: '22px', textAlign: 'right' }}>{holders}</h2>
+                  </div>
+                  {loading ? (
+                    <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
+                  ) : (
+                    ''
+                  )}
+                  <img className={'img-size'} src={Line_pic} alt="line"></img>
+                  <p></p>
+                </div>
+              </PurpleCard>
+            </div>
+            <div className={'flexbox-vertical-container'}>
+              <PurpleCard style={{ marginLeft: 50, maxWidth: 300, maxHeight: 200, width: 250, height: 175 }}>
+                <div style={{ marginTop: 25 }}>
+                  <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>MarketCap</h2>
+                  <div hidden={loading}>
+                    <h2 style={{ color: '#ffffff', fontSize: '22px', textAlign: 'right' }}>{MarketCap}</h2>
+                  </div>
+                  {loading ? (
+                    <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
+                  ) : (
+                    ''
+                  )}
+                  <img className={'img-size'} src={Line_pic} alt="line"></img>
+                  <p></p>
+                </div>
+              </PurpleCard>
+            </div>
+          </div>
+        </div>
+      </>
+    )
 }
