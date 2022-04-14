@@ -72,10 +72,13 @@ export default function DashBoardComponent() {
           <>
             {' '}
             <Headernew></Headernew>
+            <p style={{ paddingTop: '20px', marginTop: '20px', marginBottom: '20px' }}></p>
             <StratSection></StratSection>
-            <p style={{ marginTop: '20px', marginBottom: '20px' }}></p>
+            <p style={{ paddingTop: '20px', marginTop: '20px', marginBottom: '20px' }}></p>
             <Companytest></Companytest>
+            <p style={{ paddingTop: '20px', marginTop: '20px', marginBottom: '20px' }}></p>
             <Treasurysectionnew></Treasurysectionnew>
+            <p style={{ paddingTop: '20px', marginTop: '20px', marginBottom: '20px' }}></p>
             <BuyBackTablenew></BuyBackTablenew>
           </>
         )
