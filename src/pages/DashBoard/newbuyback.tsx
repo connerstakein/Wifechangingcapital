@@ -16,7 +16,7 @@ export default function BuybackTablenew() {
         <h1> BuyBack Table </h1>
         <div style={{ marginTop: '30px', maxWidth: '400px' }} className={'whitetext'}>
           <div className="flexbox-container-align">
-            <div style={{ marginRight: '120px' }}>Date</div>
+            <div style={{ marginRight: '35px' }}>Date</div>
             <div style={{ marginRight: '25px' }}> Buyback($)</div>
             <div style={{ marginRight: '25px' }}>Amount</div>
             <div style={{ marginRight: '10px' }}>Burn %</div>
@@ -26,7 +26,7 @@ export default function BuybackTablenew() {
         <div className={'darktext'}>
           <div className="flex-container">
             <div style={{ marginLeft: '10px' }}> 2022-03-29</div>
-            <div style={{ marginLeft: '10px' }}>$2344</div>
+            <div style={{ marginLeft: '10px' }}>$2,344</div>
             <div>519,722 </div>
             <div>0.05%</div>
             <div style={{ borderRight: '15px solid' }}>
@@ -90,7 +90,7 @@ export default function BuybackTablenew() {
           <p></p>
           <div className="flex-container">
             <div style={{ marginLeft: '10px' }}> 2022-04-03</div>
-            <div style={{ marginLeft: '10px' }}>$2686</div>
+            <div style={{ marginLeft: '10px' }}>$2,686</div>
             <div>1,000,000</div>
             <div>1%</div>
             <div style={{ borderRight: '15px solid' }}>

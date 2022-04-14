@@ -156,29 +156,30 @@ export default function Treasurysectionnew() {
   const n = numberWithCommas(Totalliquidity)
   const MarketCap = formatMoney(Marketcap)
 
+  //[        <div style={{ justifyContent: 'center', marginLeft: '100px' }} className={'flexbox-vertical-container'}>
+  // <div className={'flexbox-vertical-container'}>
+  //<div className={'center-icon-mobile'}>
+  //  <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
+  //   <img className={'card-icon'} src={Assets_icon} alt="Assets"></img>
+  // </LightPurpleCard>
+  // </div>
+  // <div className={'MarketCap-mobile'}>
+  //   <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
+  //    <img className={'card-icon'} src={Currency_icon} alt="Currency"></img>
+  //  </LightPurpleCard>
+  // </div>
+  // <div className={'Wallet-mobile'}>
+  //  <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
+  //   <img className={'card-icon'} src={Wallet_icon} alt="Walletimg"></img>
+  //  </LightPurpleCard>
+  // </div>
+  //</div>
+  //</div>]
+
   console.log(n)
   if (isMobile)
     return (
       <>
-        <div style={{ justifyContent: 'center', marginLeft: '100px' }} className={'flexbox-vertical-container'}>
-          <div className={'flexbox-vertical-container'}>
-            <div className={'center-icon-mobile'}>
-              <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-                <img className={'card-icon'} src={Assets_icon} alt="Assets"></img>
-              </LightPurpleCard>
-            </div>
-            <div className={'MarketCap-mobile'}>
-              <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-                <img className={'card-icon'} src={Currency_icon} alt="Currency"></img>
-              </LightPurpleCard>
-            </div>
-            <div className={'Wallet-mobile'}>
-              <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-                <img className={'card-icon'} src={Wallet_icon} alt="Walletimg"></img>
-              </LightPurpleCard>
-            </div>
-          </div>
-        </div>
         <div className="flexbox-vertical-container">
           <div className={'flexbox-vertical-container'}>
             <div className={'flexbox-vertical-container'}>
