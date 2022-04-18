@@ -17,19 +17,19 @@
     position: relative;
     top: -50%;
     right: 150%;
-    transform: translate(-30%, 50%)
+    transform: translate(-20%, 50%)
   }
   .MarketCap {
     position: relative;
     top: -50%;
     right: -150%;
-    transform: translate( -163%, 50%)
+    transform: translate( -200%, 50%)
   }
   .Wallet {
     position: relative;
     top: -50%;
     right: 150%;
-    transform: translate(203%, 50%)
+    transform: translate(200%, 50%)
   }
   .center-icon-mobile {
     position: relative;
@@ -41,7 +41,7 @@
     position: relative;
     top: 100%;
     right: 100%;
-    transform: translate( -100%, 800%)
+    transform: translate( -100%, 750%)
   }
   .Wallet-mobile {
     position: relative;
@@ -76,6 +76,30 @@
     max-width: 45%;
     padding: 8px 35px;
     justify-content: center;
+  }
+  .styledbuybuttonbottom {
+    border-style: solid;
+    border-width: 1px;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+    font-family: 'Montserrat', Sans-serif;
+    color: #ffffff;
+    margin-top: 15px;
+    background-color: #330a63;
+    border-color: rgba(255, 255, 255, 0.582);
+    border-radius: 10px;
+    min-width: 45%;
+    max-width: 45%;
+    padding: 8px 35px;
+    margin-left: '50px';
+    justify-content: center;
+    position: 'relative';
+    left: 50px;
+  }
+  .styledbuybuttonbottom:hover {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 12px;
   }
   .flexbox-vertical-container-max-width {
     display: flex;
@@ -150,6 +174,7 @@
   display: flex;
   background-color: rgb(255, 255, 255);
   max-height: 35px;
+  font-family: 'Montserrat', Sans-serif;
   align-items: center;
   border-radius: 5px;
   border: 1px solid;
@@ -165,6 +190,7 @@
   border: 1px solid;
   border-color: #000000;
   border-radius: 5px;
+  font-family: 'Montserrat', Sans-serif;
   margin: 10px;
   align-items: center;
   text-align: center;
@@ -181,6 +207,7 @@
 .flexbox-container-align > div {
   margin-right: 3px;
   align-items: center;
+  font-family: 'Montserrat', Sans-serif;
   text-align: center;
   line-height: 35px;
   font-size: 15px;
@@ -210,6 +237,7 @@
   margin: 10px;
   align-items: center;
   text-align: center;
+  font-family: 'Montserrat', Sans-serif;
   line-height: 35px;
   font-size: 15px;
 }

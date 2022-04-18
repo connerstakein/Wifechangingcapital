@@ -105,11 +105,12 @@ const Companytest = () => {
               <StyledImg
                 style={{
                   paddingBottom: 10,
+                  paddingTop: 10,
                   marginTop: '50px',
                   alignItems: 'left',
                   float: 'right',
-                  width: 600,
-                  height: 500,
+                  width: '40vw',
+                  height: '65vh',
                 }}
                 src={Group_6375}
                 alt="header"
@@ -121,9 +122,11 @@ const Companytest = () => {
                 <div style={{ justifyContent: 'center' }} className={'flexbox--vertical-container'}>
                   <p style={{ textAlign: 'center' }}>
                     {' '}
-                    <h1> Wife Changing Captial </h1>
+                    <h1 style={{ fontFamily: 'Montserrat, Sans-serif' }}> Wife Changing Capital </h1>
                   </p>
-                  <p style={{ textAlign: 'center', maxWidth: '500px', fontSize: '15px' }}>
+                  <p
+                    style={{ textAlign: 'center', maxWidth: '500px', fontSize: '15px', fontFamily: 'Lato, Sans-serif' }}
+                  >
                     We are for those who seek high rewards. For those who want nudes not nodes. For fast cars, not
                     farmers on tractors. IF you think this applies to you, this is where you belong.
                     <div className={'flexbox-container'}>
@@ -153,14 +156,16 @@ const Companytest = () => {
                     </div>
                   </p>
 
-                  <h2 style={{ textAlign: 'left' }}> Treasury </h2>
-                  <p style={{ maxWidth: '400px', textAlign: 'left', fontSize: '15px' }}>
+                  <h2 style={{ textAlign: 'left', fontFamily: 'Montserrat, Sans-serif' }}> Treasury </h2>
+                  <p
+                    style={{ maxWidth: '400px', textAlign: 'left', fontSize: '15px', fontFamily: 'Lato , Sans-serif' }}
+                  >
                     {' '}
                     We will utilize our buy and sell tax to make strategic investments in projects that meet our
                     criteria for growth
                   </p>
-                  <h2 style={{ textAlign: 'left' }}> Wife Finding App</h2>
-                  <p style={{ maxWidth: '400px', textAlign: 'left', fontSize: '15px' }}>
+                  <h2 style={{ textAlign: 'left', fontFamily: 'Montserrat, Sans-serif' }}> Wife Finding App</h2>
+                  <p style={{ maxWidth: '400px', textAlign: 'left', fontSize: '15px', fontFamily: 'Lato, Sans-serif' }}>
                     {' '}
                     Were developing a Gamefi Dating App involving NFTs, Matchmaing and fun that will help you find your
                     new Wife{' '}
@@ -178,7 +183,7 @@ const Companytest = () => {
                         )
                       }
                       style={{ justifyContent: 'center' }}
-                      className={'styledbuybutton'}
+                      className={'styledbuybuttonbottom'}
                     >
                       {' '}
                       Buy on Uniswap{' '}

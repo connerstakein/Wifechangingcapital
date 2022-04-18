@@ -12,10 +12,11 @@ import Line_pic from '../../assets/images/Line_pic.png'
 import { isMobile } from '../../utils/userAgent'
 const StyledText = styled.text`
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
-  font-size: 12px;
+  font-size: 15px;
   text-align: center;
   justrify-content: center;
-  font-family: Montserrat, sans-serif;
+  font-family: 'Lato', Sans-serif;
+  margin-bottom: 20px;
   color: #ffffff;
 `
 const StyledHeader = styled.text`
@@ -43,7 +44,9 @@ const StratSection = () => {
         </div>
         <div style={{ position: 'relative', bottom: 75 }} className={'flexbox-container'}>
           <div className={'flexbox-vertical-container'}>
-            <PurpleCard style={{ marginRight: 15, maxWidth: 100, maxHeight: 150, width: 100, height: 100 }}>
+            <PurpleCard
+              style={{ marginRight: 15, maxWidth: 100, maxHeight: 150, width: 100, height: 100, marginTop: 20 }}
+            >
               <div style={{ marginTop: 15 }}>
                 <img className={'card-icon'} alt="icon" src={Card_ChartIcon}></img>
                 <h1 style={{ color: '#ffffff', fontSize: '18px', position: 'relative', right: 10, top: 15 }}>
@@ -99,7 +102,9 @@ const StratSection = () => {
           </div>
           <div className={'flexbox-container'}>
             <div className={'flexbox-vertical-container'}>
-              <PurpleCard style={{ marginRight: 25, maxWidth: 250, maxHeight: 250, width: 250, height: 250 }}>
+              <PurpleCard
+                style={{ marginRight: 25, maxWidth: 250, maxHeight: 250, width: 250, height: 250, marginTop: 20 }}
+              >
                 <div style={{ marginTop: 25 }}>
                   <img className={'card-icon'} alt="icon" src={Card_ChartIcon}></img>
                   <h1 style={{ color: '#ffffff', fontSize: '22px' }}>Incubation</h1>
@@ -111,7 +116,7 @@ const StratSection = () => {
               </PurpleCard>
             </div>
             <div className={'flexbox-vertical-container'}>
-              <PurpleCard style={{ maxWidth: 250, maxHeight: 250, width: 250, height: 250 }}>
+              <PurpleCard style={{ maxWidth: 250, maxHeight: 250, width: 250, height: 250, marginTop: 20 }}>
                 <div style={{ marginTop: 25 }}>
                   <img className={'card-icon'} alt="icon" src={Card_BubbleIcon}></img>
                   <h1 style={{ color: '#ffffff', fontSize: '22px' }}>NFTS</h1>
@@ -124,7 +129,9 @@ const StratSection = () => {
               </PurpleCard>
             </div>
             <div className={'flexbox-vertical-container'}>
-              <PurpleCard style={{ marginLeft: 25, maxWidth: 250, maxHeight: 250, width: 250, height: 250 }}>
+              <PurpleCard
+                style={{ marginLeft: 25, maxWidth: 250, maxHeight: 250, width: 250, height: 250, marginTop: 20 }}
+              >
                 <div style={{ marginTop: 25 }}>
                   <img className={'card-icon'} alt="icon" src={Card_GraphIcon}></img>
                   <h1 style={{ color: '#ffffff', fontSize: '22px' }}>Small Caps</h1>

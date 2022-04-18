@@ -86,17 +86,19 @@ export default function DashBoardComponent() {
         return (
           <>
             <Headernew></Headernew>
+            <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
             <div className={'testimage'} style={{ backgroundImage: `url(${Path23})`, width: '100vw' }}>
               <div style={{ justifyContent: 'center' }}>
                 <StratSection></StratSection>
               </div>
             </div>
+            <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
             <div className={'testbottomimage'} style={{ backgroundImage: `url(${Path20})`, width: '100vw' }}>
               <Companytest></Companytest>
             </div>
-
+            <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
             <Treasurysectionnew></Treasurysectionnew>
-
+            <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
             <BuyBackTablenew></BuyBackTablenew>
           </>
         )

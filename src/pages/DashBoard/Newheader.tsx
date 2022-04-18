@@ -24,7 +24,13 @@ const BuyButton = styled.button`
   min-width: 45%;
   max-width: 45%;
   padding: 8px 35px;
+  :hover {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 12px;
+  }
 `
+
 const TelegramButton = styled.button`
   border-style: solid;
   border-width: 1px;
@@ -40,11 +46,16 @@ const TelegramButton = styled.button`
   min-width: 45%;
   max-width: 45%;
   padding: 8px 35px;
+  :hover {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 12px;
+  }
 `
 const StyledCardText = styled.text`
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
   font-size: 18px;
-  font-family: Montserrat, sans-serif;
+  font-family: 'Lato', Sans-serif;
   color: #ffffff;
   font-weight: bold;
 `
@@ -60,7 +71,7 @@ const StyledHeaderText2 = styled.text`
   font-weight: bold;
   position: relative;
   left: 15px;
-  font-family: Monsterrat, sans-serif;
+  font-family: 'Montserrat', Sans-serif;
 `
 const StyledImg = styled.img`
   justify-content: 'center';
@@ -97,7 +108,7 @@ const Headernew = () => {
                   <StyledHeaderText1> Change your</StyledHeaderText1> <StyledHeaderText2>life</StyledHeaderText2>
                 </div>
               </div>
-              <p>
+              <p style={{ fontFamily: 'Lato, Sans-serif' }}>
                 {' '}
                 Come with us on a journey to change your life, and if you need to along the way you could just change
                 your wife
@@ -151,8 +162,8 @@ const Headernew = () => {
                   paddingBottom: 10,
                   alignItems: 'right',
                   float: 'left',
-                  width: 550,
-                  height: 550,
+                  width: '40vw',
+                  height: '80vh',
                   alignSelf: 'right',
                 }}
                 src={coin}
