@@ -2,7 +2,7 @@ import '../DashBoard/styles.css'
 
 import { LoadingOutlined } from '@ant-design/icons'
 import { Contract } from '@ethersproject/contracts'
-import { Web3Provider } from '@ethersproject/providers'
+import { getDefaultProvider } from '@ethersproject/providers'
 import { formatUnits } from '@ethersproject/units'
 //import useScrollPosition from '@react-hook/window-scroll'
 import { useWeb3React } from '@web3-react/core'
@@ -73,7 +73,8 @@ export default function Treasurysectionnew() {
 
       try {
         // setLoading(true)
-        const provider = new Web3Provider(library.provider)
+        //const provider = new Web3Provider(library.provider)
+        const provider = getDefaultProvider()
         const response = await fetch(
           'https://api.etherscan.io/api?module=contract&action=getabi&address=0x3ee197c0434ef9fcef00c7cf338858a85e551640&apikey=432BW4Y2JX817J6CJAWGHAFTXQNFVXRU2Q'
         ) // Api Key also the pair contract
@@ -102,7 +103,8 @@ export default function Treasurysectionnew() {
 
       try {
         // setLoading(true)
-        const provider = new Web3Provider(library.provider)
+        //const provider = new Web3Provider(library.provider)
+        const provider = getDefaultProvider()
         const response = await fetch(
           'https://api.etherscan.io/api?module=contract&action=getabi&address=0x3ee197c0434ef9fcef00c7cf338858a85e551640&apikey=432BW4Y2JX817J6CJAWGHAFTXQNFVXRU2Q'
         ) // Api Key also the pair contract
