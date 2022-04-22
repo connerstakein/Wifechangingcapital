@@ -1,4 +1,4 @@
-import './styles.css'
+import '../DashBoard/styles.css'
 
 import { LoadingOutlined } from '@ant-design/icons'
 import { Contract } from '@ethersproject/contracts'
@@ -7,29 +7,57 @@ import { formatUnits } from '@ethersproject/units'
 //import useScrollPosition from '@react-hook/window-scroll'
 import { useWeb3React } from '@web3-react/core'
 import { Spin } from 'antd'
+import TreasuryChartIcon from 'assets/images/treasury-chart-icon.png'
 import { LightPurpleCard, PurpleCard } from 'components/Card'
+import { TransparentCard } from 'components/Card'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import React, { useEffect, useState } from 'react'
+import styled from 'styled-components/macro'
 
 //import { useTransition } from 'react-spring'
 import Assets_icon from '../../assets/images/Assets_icon.png'
 import Currency_icon from '../../assets/images/Currency_icon.png'
 import Line_pic from '../../assets/images/Line_pic.png'
 import Wallet_icon from '../../assets/images/Wallet_icon.png'
+import { ExternalLink } from '../../theme'
 import { isMobile } from '../../utils/userAgent'
+
+const activeClassName = 'ACTIVE'
+const StyledExternalLink = styled(ExternalLink).attrs({
+  activeClassName,
+})<{ isActive?: boolean }>`
+  ${({ theme }) => theme.flexRowNoWrap}
+  align-items: left;
+  border-radius: 3rem;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000000;
+  font-size: 1rem;
+  width: fit-content;
+  margin: 0 12px;
+  font-weight: 500;
+  &.${activeClassName} {
+    border-radius: 14px;
+    font-weight: 600;
+    color: #000000;
+  }
+  :hover,
+  :focus {
+    color: #000000;
+    text-decoration: none;
+  }
+`
 export default function Treasurysectionnew() {
   //const [loading, setLoading] = useState(false)
   const { account } = useActiveWeb3React()
   const showConnectAWallet = Boolean(!account)
-  //const [userBalance, setuserBalance] = useState(Number)
-  //const [claimableBalance, setclaimableBalance] = useState(Number)
   const [Reserve0, setReserve0] = useState(Number)
   const [Reserve1, setReserve1] = useState(Number)
   const [holders, setholders] = useState(Number)
-  //const [hidden, sethidden] = useState(Boolean)
-  //const ScrollY = useScrollPosition()
-
-  //const [MriPrice, setMriPrice] = useState(Number)
+  const [DoggerPrice, setDoggerPrice] = useState(Number)
+  const [MRIPrice, setMRIPrice] = useState(Number)
+  const [StiltPrice, setStiltPrice] = useState(Number)
   const context = useWeb3React()
   const { library } = context
   const [loading, setLoading] = useState(true)
@@ -94,6 +122,72 @@ export default function Treasurysectionnew() {
         // setLoading(false)
       }
     }
+    async function FetchDoggerPrice() {
+      if (showConnectAWallet) {
+        console.log({ message: 'Hold On there Partner, there seems to be an Account err!' })
+        return
+      }
+
+      try {
+        setLoading(true)
+        const response = await fetch(
+          'https://api.ethplorer.io/getTokenInfo/0x56143E2736C1b7F8A7d8C74707777850b46ac9aF?apiKey=EK-pHhzD-K23vfE9-d9bYq'
+        ) // Api Key also the pair contract
+        const data = await response.json()
+        const DoggerPrice = data.price.rate
+        return DoggerPrice
+      } catch (error) {
+        console.log(error)
+        setLoading(false)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    async function FetchMRIPrice() {
+      if (showConnectAWallet) {
+        console.log({ message: 'Hold On there Partner, there seems to be an Account err!' })
+        return
+      }
+
+      try {
+        setLoading(true)
+        const response = await fetch(
+          'https://api.ethplorer.io/getTokenInfo/0x0913dDAE242839f8995c0375493f9a1A3Bddc977?apiKey=EK-pHhzD-K23vfE9-d9bYq'
+        ) // Api Key also the pair contract
+
+        const data = await response.json()
+        const MRIPrice = data.price.rate
+        return MRIPrice
+      } catch (error) {
+        console.log(error)
+        setLoading(false)
+      } finally {
+        setLoading(false)
+      }
+    }
+    async function FetchStiltPrice() {
+      if (showConnectAWallet) {
+        console.log({ message: 'Hold On there Partner, there seems to be an Account err!' })
+        return
+      }
+
+      try {
+        setLoading(true)
+        const response = await fetch(
+          'https://api.ethplorer.io/getTokenInfo/0x06fcbf38e823efc1e609b9491AaB546334c6ee69?apiKey=EK-pHhzD-K23vfE9-d9bYq'
+        ) // Api Key also the pair contract
+
+        const data = await response.json()
+        const StiltPrice = data.price.rate
+        return StiltPrice
+      } catch (error) {
+        console.log(error)
+        setLoading(false)
+      } finally {
+        setLoading(false)
+      }
+    }
     async function FetchHolders() {
       if (showConnectAWallet) {
         console.log({ message: 'Hold On there Partner, there seems to be an Account err!' })
@@ -129,16 +223,21 @@ export default function Treasurysectionnew() {
       .then((result) => setReserve0(result))
 
     FetchHolders().then((result) => setholders(result))
+    FetchDoggerPrice().then((result) => setDoggerPrice(result))
+    FetchMRIPrice().then((result) => setMRIPrice(result))
+    FetchStiltPrice().then((result) => setStiltPrice(result))
   }, [account, showConnectAWallet, library.provider])
 
   const WifePrice = Reserve0 / Reserve1
   const WifePriceinUsd = WifePrice / 1000000
 
-  //const wifeprice = WifePriceinUsd.toFixed(5)
-  //const Reserve2price = Reserve2math * 1000000
-  //const YourBalanceValue = (WifePriceinUsd * userBalance).toFixed(2)
-  //const SHIinvestmentValue = SHIPriceinUSD * 2292061013
-  //const wifeprice = WifePriceinUsd.toFixed(5)
+  const DoggerPriceNear = DoggerPrice / 0.002478 - 1
+  const DoggerPriceInProfit = (DoggerPriceNear * 100).toFixed(2)
+  const MRIPriceCalc = MRIPrice / 0.0547
+  const MRIPriceInProfit = (MRIPriceCalc * 10).toFixed(2)
+  const StiltPriceCalc = StiltPrice / 0.000002588 - 1
+  const StiltPriceInProfit = (StiltPriceCalc * 100).toFixed(2)
+  console.log(StiltPriceInProfit)
   const Marketcap = WifePriceinUsd * 100000000 // essentially jpegusd price divided by total supply
   //const MarketCap = Marketcap.toLocaleString()
   const ReserveBinusd = WifePriceinUsd * Reserve1
@@ -155,6 +254,10 @@ export default function Treasurysectionnew() {
 
   const n = numberWithCommas(Totalliquidity)
   const MarketCap = formatMoney(Marketcap)
+
+  const DoggerChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0x6c8ae94331d7f9bf7a1f3e0b1480ccfd46d1a723'
+  const StiltonChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0x779dac1f4df345acb6ee814afda755f1693770cb'
+  const MRIChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0xaae64809138f576b0b50f1d898dd99055327c2d3'
 
   //[        <div style={{ justifyContent: 'center', marginLeft: '100px' }} className={'flexbox-vertical-container'}>
   // <div className={'flexbox-vertical-container'}>
@@ -242,6 +345,7 @@ export default function Treasurysectionnew() {
     return (
       <>
         <div className={'flexbox-vertical-container'}>
+          <h1> Treasury</h1>
           <div className={'flexbox-container'}>
             <div className={'center-icon'}>
               <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
@@ -313,6 +417,157 @@ export default function Treasurysectionnew() {
                   <p></p>
                 </div>
               </PurpleCard>
+            </div>
+          </div>
+        </div>
+        <div className={'flexbox-vertical-container'}>
+          <div style={{ marginTop: '30px' }} className={'whitetext'}>
+            <div className="flexbox-container-align">
+              <div style={{ marginRight: '11vw' }}>Date</div>
+              <div style={{ marginRight: '0px' }}>Token</div>
+              <div style={{ marginRight: '25px' }}>Amount(USD)</div>
+              <div style={{ marginRight: '35px' }}>Entry Price</div>
+              <div style={{ marginRight: '25px' }}>Tokens</div>
+              <div style={{ marginRight: '65px' }}>Profit %</div>
+            </div>
+          </div>
+          <div className={'darktext'}>
+            <div className="flex-container">
+              <h3 style={{ marginLeft: '10px' }}> 2022-04-14 </h3>
+              <div style={{ marginLeft: '103px' }}>Dogger</div>
+              <div>$2,400.94 </div>
+              <div>$0.0024</div>
+              <div>970,123</div>
+              <div>
+                {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
+                {DoggerPriceInProfit}%
+              </div>
+              <StyledExternalLink id={'charts-nav-link'} href={DoggerChartURL}>
+                <p
+                  style={{
+                    backgroundColor: '#a675c8',
+                    height: '35px',
+                    width: '100px',
+                    boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.3)',
+                    border: '1px solid',
+                    fontWeight: 'bold',
+                    fontSize: '18px',
+                    textAlign: 'center',
+                    alignItems: 'center',
+                    borderColor: '#000000',
+                    lineHeight: '35px',
+                    borderRadius: '5px',
+                    margin: '10px',
+                  }}
+                >
+                  Chart
+                  <img
+                    src={TreasuryChartIcon}
+                    style={{ width: '30px', height: '30px', float: 'right' }}
+                    alt="icon"
+                  ></img>
+                </p>
+              </StyledExternalLink>
+            </div>
+            <p></p>
+            <div className="flex-container">
+              <h3 style={{ marginLeft: '10px' }}> 2022-04-02</h3>
+              <div style={{ marginLeft: '100px' }}>MRI</div>
+              <div>$4,622.99</div>
+              <div>$0.063</div>
+              <div>89,465</div>
+              <div>
+                {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
+                {MRIPriceInProfit}%
+              </div>
+              <StyledExternalLink id={'charts-nav-link'} href={MRIChartURL}>
+                <p
+                  style={{
+                    backgroundColor: '#a675c8',
+                    height: '35px',
+                    width: '100px',
+                    boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.3)',
+                    border: '1px solid',
+                    fontWeight: 'bold',
+                    fontSize: '18px',
+                    textAlign: 'center',
+                    alignItems: 'center',
+                    borderColor: '#000000',
+                    lineHeight: '35px',
+                    borderRadius: '5px',
+                    margin: '10px',
+                  }}
+                >
+                  Chart
+                  <img
+                    src={TreasuryChartIcon}
+                    style={{ width: '30px', height: '30px', float: 'right' }}
+                    alt="icon"
+                  ></img>
+                </p>
+              </StyledExternalLink>
+            </div>
+            <p></p>
+            <div className="flex-container">
+              <h3 style={{ marginLeft: '10px' }}> 2022-04-05</h3>
+              <div style={{ marginLeft: '100px' }}>Stilton</div>
+              <div>$3,448.00 </div>
+              <div>$0.000002588</div>
+              <div>1,332,134,712</div>
+              <div>
+                {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
+                {StiltPriceInProfit}%
+              </div>
+              <StyledExternalLink id={'charts- nav-link'} href={StiltonChartURL}>
+                <p
+                  style={{
+                    backgroundColor: '#a675c8',
+                    height: '35px',
+                    width: '100px',
+                    boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.3)',
+                    border: '1px solid',
+                    fontWeight: 'bold',
+                    fontSize: '18px',
+                    textAlign: 'center',
+                    alignItems: 'center',
+                    borderColor: '#000000',
+                    lineHeight: '35px',
+                    borderRadius: '5px',
+                    margin: '10px',
+                  }}
+                >
+                  Chart
+                  <img
+                    src={TreasuryChartIcon}
+                    style={{ width: '30px', height: '30px', float: 'right' }}
+                    alt="icon"
+                  ></img>
+                </p>
+              </StyledExternalLink>
+            </div>
+            <p></p>
+            <p></p>
+            <TransparentCard></TransparentCard>
+            <div className={'flexbox-container'}>
+              <div className={'treasury-card'}>
+                <h4 style={{ paddingLeft: '1vw' }}>Trade Balance</h4>
+                <div style={{ marginLeft: '12vw' }}>$15,652</div>
+              </div>
+              <div className={'treasury-card'} style={{ marginLeft: '11vw' }}>
+                <h4 style={{ paddingLeft: '1vw' }}>USDC Balance</h4>
+                <div style={{ marginLeft: '12vw' }}>$53,642</div>
+              </div>
+            </div>
+            <p></p>
+            <div className={'flexbox-container'}>
+              <div className={'treasury-card'}>
+                <h4 style={{ paddingLeft: '1vw' }}>ETH Balance</h4>
+                <div style={{ marginLeft: '12.8vw' }}>$1,653</div>
+              </div>
+              <div className={'treasury-card'} style={{ marginLeft: '11vw' }}>
+                <h4 style={{ paddingLeft: '1vw' }}>Total Balance</h4>
+                <div style={{ marginLeft: '12.5vw' }}>$70,847</div>
+              </div>
             </div>
           </div>
         </div>

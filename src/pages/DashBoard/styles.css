@@ -179,23 +179,23 @@
   border-radius: 5px;
   border: 1px solid;
   border-color: #000000;
-
 }
 
 .flex-container > div {
-  background-color: #f3cce9;
+  background-color: #ffe3f8;
   height: 35px;
   width: 100px;
-  box-shadow: -2px 5px 17px 5px rgba(0,0,0,0.31);
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
   border: 1px solid;
   border-color: #000000;
   border-radius: 5px;
-  font-family: 'Montserrat', Sans-serif;
   margin: 10px;
   align-items: center;
   text-align: center;
   line-height: 35px;
   font-size: 15px;
+  font-weight: bold;
+  font-family: 'montserrat sans-serif';
 }
 .flexbox-container-align {
   display: flex;
@@ -207,24 +207,41 @@
 .flexbox-container-align > div {
   margin-right: 3px;
   align-items: center;
-  font-family: 'Montserrat', Sans-serif;
-  text-align: center;
+  text-align: left;
   line-height: 35px;
   font-size: 15px;
   height: 35px;
   width: 100px;
 }
-.flex-container {
+.treasury-card{
   display: flex;
+  width: 30vw;
   background-color: rgb(255, 255, 255);
   max-height: 35px;
+  font-family: 'montserrat sans-serif';
   align-items: center;
   border-radius: 5px;
   border: 1px solid;
   border-color: #000000;
-
 }
-
+.treasury-card > div {
+  background-color: #ffe3f8;
+  display: flex;
+  justify-content: center;
+  height: 35px;
+  width: 100px;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 5px;
+  font-family: 'montserrat sans-serif';
+  margin: 10px;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  line-height: 35px;
+  font-size: 15px;
+}
 .flex-container-mobile > div {
   background-color: #f3cce9;
   height: 35px;

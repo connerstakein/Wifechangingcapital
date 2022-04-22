@@ -1,5 +1,5 @@
 import 'animate.css'
-import './styles.css'
+import '../DashBoard/styles.css'
 
 import { BuyBackCard } from 'components/Card'
 import React from 'react'

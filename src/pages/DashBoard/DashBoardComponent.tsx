@@ -9,15 +9,9 @@ import Path23 from '../../assets/images/Path23.png'
 import { PurpleCard } from '../../components/Card'
 import { isMobile } from '../../utils/userAgent'
 import Companytest from './CitySection'
-import BuyBackTablenew from './newbuyback'
 import Headernew from './Newheader'
-import Treasurysectionnew from './NewTreasury'
 import StratSection from './Strategy'
-//import UserTokenBalance from './UserTokenBalance'
-//import NFTtable from './NFT'
-//import ClaimTransaction from './ClaimTransaction'
-//import UserTokenStats from './Userstats'
-//import CompanyMetrics from "../../components/CompanyMetrics"
+
 export default function DashBoardComponent() {
   const { account, chainId } = useActiveWeb3React()
   const showConnectAWallet = Boolean(!account)
@@ -77,9 +71,6 @@ export default function DashBoardComponent() {
             <p style={{ paddingTop: '20px', marginTop: '20px', marginBottom: '20px' }}></p>
             <Companytest></Companytest>
             <p style={{ paddingTop: '20px', marginTop: '20px', marginBottom: '20px' }}></p>
-            <Treasurysectionnew></Treasurysectionnew>
-            <p style={{ paddingTop: '20px', marginTop: '20px', marginBottom: '20px' }}></p>
-            <BuyBackTablenew></BuyBackTablenew>
           </>
         )
       } else {
@@ -97,9 +88,6 @@ export default function DashBoardComponent() {
               <Companytest></Companytest>
             </div>
             <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
-            <Treasurysectionnew></Treasurysectionnew>
-            <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
-            <BuyBackTablenew></BuyBackTablenew>
           </>
         )
       }

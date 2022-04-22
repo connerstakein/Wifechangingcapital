@@ -14,7 +14,9 @@ import Web3ReactManager from '../components/Web3ReactManager'
 import { useModalOpen, useToggleModal } from '../state/application/hooks'
 import { ApplicationModal } from '../state/application/reducer'
 import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
+import Buyback from './Buyback'
 import DashBoard from './DashBoard'
+import Treasury from './Treasury'
 //import Landing from './Landing'
 //import Pool from './Pool'
 //import PoolV2 from './Pool/v2'
@@ -85,6 +87,8 @@ export default function App() {
                 <Route exact strict path="/Dashboard">
                   <Redirect to="/DashBoard" />
                 </Route>
+                <Route strict path="/Treasury" component={Treasury} />
+                <Route strict path="/Buyback" component={Buyback} />
               </Switch>
             </Suspense>
             <Marginer />

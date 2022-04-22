@@ -47,6 +47,9 @@ export const BuyBackCard = styled(Card)`
   border-radius: 10px;
   text-align: center;
 `
+export const TransparentCard = styled(Card)`
+  background-color: rgba(255, 255, 255, 0);
+`
 export const LightPurpleCard = styled(Card)`
   border-style: solid;
   border-width: 1px;

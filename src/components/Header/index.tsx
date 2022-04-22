@@ -259,6 +259,17 @@ export default function Header() {
         <UniIcon>
           <Logo src={mcdegenlogo} alt="logo" width="50px" height="100%"></Logo>
         </UniIcon>
+        <HeaderLinks>
+          <StyledNavLink id={'/Dashboard'} to={'/Dashboard'}>
+            <Trans> Home </Trans>
+          </StyledNavLink>
+          <StyledNavLink id={'/Buyback'} to={'/Buyback'}>
+            <Trans>BuyBacks </Trans>
+          </StyledNavLink>
+          <StyledNavLink id={'/Treasury'} to={'/Treasury'}>
+            <Trans>Treasury </Trans>
+          </StyledNavLink>
+        </HeaderLinks>
         <HeaderControls>
           <HeaderElement>
             <NetworkSelector />
