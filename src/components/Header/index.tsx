@@ -1,4 +1,5 @@
 /* eslint-disable simple-import-sort/imports */
+import '../Dashboard/styles.css'
 //import { PieChartOutlined } from '@ant-design/icons'
 import { Trans } from '@lingui/macro'
 import useScrollPosition from '@react-hook/window-scroll'
@@ -85,7 +86,7 @@ const HeaderElement = styled.div`
 
 const HeaderLinks = styled(Row)`
   justify-self: center;
-  background-color: ${({ theme }) => theme.bg0};
+  background-color: #ffffff;
   width: fit-content;
   padding: 2px;
   border-radius: 16px;
@@ -109,7 +110,7 @@ const HeaderLinks = styled(Row)`
     bottom: 0; right: 50%;
     transform: translate(50%,-50%);
     margin: 0 auto;
-    background-color: ${({ theme }) => theme.bg0};
+    background-color: #ffffff;
     border: 1px solid ${({ theme }) => theme.bg2};
     box-shadow: 0px 6px 10px rgb(0 0 0 / 2%);
   `};
