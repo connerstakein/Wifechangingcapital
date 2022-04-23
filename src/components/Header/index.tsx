@@ -1,5 +1,5 @@
 /* eslint-disable simple-import-sort/imports */
-import '../Dashboard/styles.css'
+import '../../pages/DashBoard/styles.css'
 //import { PieChartOutlined } from '@ant-design/icons'
 import { Trans } from '@lingui/macro'
 import useScrollPosition from '@react-hook/window-scroll'

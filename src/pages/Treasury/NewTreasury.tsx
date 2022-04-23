@@ -8,7 +8,7 @@ import { formatUnits } from '@ethersproject/units'
 import { useWeb3React } from '@web3-react/core'
 import { Spin } from 'antd'
 import TreasuryChartIcon from 'assets/images/treasury-chart-icon.png'
-import { LightPurpleCard, PurpleCard } from 'components/Card'
+import { BuyBackCard, LightPurpleCard, PurpleCard } from 'components/Card'
 import { TransparentCard } from 'components/Card'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import React, { useEffect, useState } from 'react'
@@ -54,6 +54,8 @@ export default function Treasurysectionnew() {
   const showConnectAWallet = Boolean(!account)
   const [Reserve0, setReserve0] = useState(Number)
   const [Reserve1, setReserve1] = useState(Number)
+  const [STATSReserve0, setSTATSReserve0] = useState(Number)
+  const [STATSReserve1, setSTATSReserve1] = useState(Number)
   const [holders, setholders] = useState(Number)
   const [DoggerPrice, setDoggerPrice] = useState(Number)
   const [MRIPrice, setMRIPrice] = useState(Number)
@@ -117,6 +119,64 @@ export default function Treasurysectionnew() {
         const Reserve1 = await Price._reserve1
         const Reserve1display = Reserve1.toString()
         return Reserve1display
+      } catch (error) {
+        console.log(error)
+        //setLoading(false)
+      } finally {
+        // setLoading(false)
+      }
+    }
+    async function FetchSTATSReserve0() {
+      if (showConnectAWallet) {
+        console.log({ message: 'Hold On there Partner, there seems to be an Account err!' })
+        return
+      }
+
+      try {
+        // setLoading(true)
+        //const provider = new Web3Provider(library.provider)
+        const provider = getDefaultProvider()
+        const response = await fetch(
+          'https://api.etherscan.io/api?module=contract&action=getabi&address=0xF2692f152dc96CdAc4BA5be7Ac53762b4dBF2Fc9&apikey=432BW4Y2JX817J6CJAWGHAFTXQNFVXRU2Q'
+        ) // Api Key also the pair contract
+
+        const data = await response.json()
+        const abi = data.result
+        const contractaddress = '0xF2692f152dc96CdAc4BA5be7Ac53762b4dBF2Fc9' // need uniswapv2pair
+        const contract = new Contract(contractaddress, abi, provider)
+        const Price = await contract.getReserves()
+        const Reserve0 = await Price._reserve0
+        const STATSDisplayReserve0 = Reserve0.toString()
+        return STATSDisplayReserve0
+      } catch (error) {
+        console.log(error)
+        //setLoading(false)
+      } finally {
+        // setLoading(false)
+      }
+    }
+    async function FetchSTATSReserve1() {
+      if (showConnectAWallet) {
+        console.log({ message: 'Hold On there Partner, there seems to be an Account err!' })
+        return
+      }
+
+      try {
+        // setLoading(true)
+        //const provider = new Web3Provider(library.provider)
+        const provider = getDefaultProvider()
+        const response = await fetch(
+          'https://api.etherscan.io/api?module=contract&action=getabi&address=0xF2692f152dc96CdAc4BA5be7Ac53762b4dBF2Fc9&apikey=432BW4Y2JX817J6CJAWGHAFTXQNFVXRU2Q'
+        ) // Api Key also the pair contract
+
+        const data = await response.json()
+        const abi = data.result
+        const contractaddress = '0xF2692f152dc96CdAc4BA5be7Ac53762b4dBF2Fc9' // need uniswapv2pair
+        const contract = new Contract(contractaddress, abi, provider)
+        const Price = await contract.getReserves()
+        const Reserve1 = await Price._reserve1
+        const STATSReserve1display = Reserve1.toString()
+        return STATSReserve1display
       } catch (error) {
         console.log(error)
         //setLoading(false)
@@ -190,6 +250,7 @@ export default function Treasurysectionnew() {
         setLoading(false)
       }
     }
+
     async function FetchHolders() {
       if (showConnectAWallet) {
         console.log({ message: 'Hold On there Partner, there seems to be an Account err!' })
@@ -224,6 +285,17 @@ export default function Treasurysectionnew() {
       .then((result) => result.toFixed(3))
       .then((result) => setReserve0(result))
 
+    FetchSTATSReserve1()
+      .then((result) => formatUnits(result))
+      .then((result) => JSON.parse(result))
+      .then((result) => result.toFixed(3))
+      .then((result) => setSTATSReserve1(result))
+
+    FetchSTATSReserve0()
+      .then((result) => JSON.parse(result))
+      .then((result) => result.toFixed(3))
+      .then((result) => setSTATSReserve0(result))
+
     FetchHolders().then((result) => setholders(result))
     FetchDoggerPrice().then((result) => setDoggerPrice(result))
     FetchMRIPrice().then((result) => setMRIPrice(result))
@@ -233,6 +305,11 @@ export default function Treasurysectionnew() {
   const WifePrice = Reserve0 / Reserve1
   const WifePriceinUsd = WifePrice / 1000000
 
+  const STATSPrice = STATSReserve0 / STATSReserve1
+  const STATSPriceinUsd = STATSPrice / 100000000000000000
+  console.log(STATSPriceinUsd)
+  //const calc = (STATSPriceinUsd / 0.0256) * 100
+  const calc = 56
   const DoggerPriceNear = DoggerPrice / 0.002478 - 1
   const DoggerPriceInProfit = (DoggerPriceNear * 100).toFixed(2)
   const MRIPriceCalc = MRIPrice / 0.0547
@@ -260,7 +337,7 @@ export default function Treasurysectionnew() {
   const DoggerChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0x6c8ae94331d7f9bf7a1f3e0b1480ccfd46d1a723'
   const StiltonChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0x779dac1f4df345acb6ee814afda755f1693770cb'
   const MRIChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0xaae64809138f576b0b50f1d898dd99055327c2d3'
-
+  const SATSChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0xa010e37405eb57437a381daae88e5c3913d0796c'
   //[        <div style={{ justifyContent: 'center', marginLeft: '100px' }} className={'flexbox-vertical-container'}>
   // <div className={'flexbox-vertical-container'}>
   //<div className={'center-icon-mobile'}>
@@ -348,6 +425,7 @@ export default function Treasurysectionnew() {
       <>
         <div className={'flexbox-vertical-container'}>
           <h1> Treasury</h1>
+
           <div className={'flexbox-container'}>
             <div className={'center-icon'}>
               <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
@@ -423,155 +501,195 @@ export default function Treasurysectionnew() {
           </div>
         </div>
         <div className={'flexbox-vertical-container'}>
-          <div style={{ marginTop: '30px' }} className={'whitetext'}>
-            <div className="flexbox-container-align">
-              <div style={{ marginRight: '11vw' }}>Date</div>
-              <div style={{ marginRight: '0px' }}>Token</div>
-              <div style={{ marginRight: '25px' }}>Amount(USD)</div>
-              <div style={{ marginRight: '35px' }}>Entry Price</div>
-              <div style={{ marginRight: '25px' }}>Tokens</div>
-              <div style={{ marginRight: '65px' }}>Profit %</div>
-            </div>
-          </div>
-          <div className={'darktext'}>
-            <div className="flex-container">
-              <h3 style={{ marginLeft: '10px' }}> 2022-04-14 </h3>
-              <div style={{ marginLeft: '103px' }}>Dogger</div>
-              <div>$2,400.94 </div>
-              <div>$0.0024</div>
-              <div>970,123</div>
-              <div>
-                {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
-                {DoggerPriceInProfit}%
-              </div>
-              <StyledExternalLink id={'charts-nav-link'} href={DoggerChartURL}>
-                <p
-                  style={{
-                    backgroundColor: '#a675c8',
-                    height: '35px',
-                    width: '100px',
-                    boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.3)',
-                    border: '1px solid',
-                    fontWeight: 'bold',
-                    fontSize: '18px',
-                    textAlign: 'center',
-                    alignItems: 'center',
-                    borderColor: '#000000',
-                    lineHeight: '35px',
-                    borderRadius: '5px',
-                    margin: '10px',
-                  }}
-                >
-                  Chart
-                  <img
-                    src={TreasuryChartIcon}
-                    style={{ width: '30px', height: '30px', float: 'right' }}
-                    alt="icon"
-                  ></img>
-                </p>
-              </StyledExternalLink>
-            </div>
-            <p></p>
-            <div className="flex-container">
-              <h3 style={{ marginLeft: '10px' }}> 2022-04-02</h3>
-              <div style={{ marginLeft: '100px' }}>MRI</div>
-              <div>$4,622.99</div>
-              <div>$0.063</div>
-              <div>89,465</div>
-              <div>
-                {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
-                {MRIPriceInProfit}%
-              </div>
-              <StyledExternalLink id={'charts-nav-link'} href={MRIChartURL}>
-                <p
-                  style={{
-                    backgroundColor: '#a675c8',
-                    height: '35px',
-                    width: '100px',
-                    boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.3)',
-                    border: '1px solid',
-                    fontWeight: 'bold',
-                    fontSize: '18px',
-                    textAlign: 'center',
-                    alignItems: 'center',
-                    borderColor: '#000000',
-                    lineHeight: '35px',
-                    borderRadius: '5px',
-                    margin: '10px',
-                  }}
-                >
-                  Chart
-                  <img
-                    src={TreasuryChartIcon}
-                    style={{ width: '30px', height: '30px', float: 'right' }}
-                    alt="icon"
-                  ></img>
-                </p>
-              </StyledExternalLink>
-            </div>
-            <p></p>
-            <div className="flex-container">
-              <h3 style={{ marginLeft: '10px' }}> 2022-04-05</h3>
-              <div style={{ marginLeft: '100px' }}>Stilton</div>
-              <div>$3,448.00 </div>
-              <div>$0.000002588</div>
-              <div>1,332,134,712</div>
-              <div>
-                {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
-                {StiltPriceInProfit}%
-              </div>
-              <StyledExternalLink id={'charts- nav-link'} href={StiltonChartURL}>
-                <p
-                  style={{
-                    backgroundColor: '#a675c8',
-                    height: '35px',
-                    width: '100px',
-                    boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.3)',
-                    border: '1px solid',
-                    fontWeight: 'bold',
-                    fontSize: '18px',
-                    textAlign: 'center',
-                    alignItems: 'center',
-                    borderColor: '#000000',
-                    lineHeight: '35px',
-                    borderRadius: '5px',
-                    margin: '10px',
-                  }}
-                >
-                  Chart
-                  <img
-                    src={TreasuryChartIcon}
-                    style={{ width: '30px', height: '30px', float: 'right' }}
-                    alt="icon"
-                  ></img>
-                </p>
-              </StyledExternalLink>
-            </div>
-            <p></p>
-            <p></p>
-            <TransparentCard></TransparentCard>
-            <div className={'flexbox-container'}>
-              <div className={'treasury-card'}>
-                <h4 style={{ paddingLeft: '1vw' }}>Trade Balance</h4>
-                <div style={{ marginLeft: '12vw' }}>$15,652</div>
-              </div>
-              <div className={'treasury-card'} style={{ marginLeft: '11vw' }}>
-                <h4 style={{ paddingLeft: '1vw' }}>USDC Balance</h4>
-                <div style={{ marginLeft: '12vw' }}>$53,642</div>
+          <BuyBackCard style={{ marginTop: '30px' }}>
+            <div style={{ marginTop: '30px' }} className={'whitetext'}>
+              <div className="flexbox-container-align">
+                <div style={{ marginRight: '3vw' }}>Date</div>
+                <div style={{ marginRight: '0px' }}>Token</div>
+                <div style={{ marginRight: '15px' }}>Amount($)</div>
+                <div style={{ marginRight: '25px' }}>Entry Price</div>
+                <div style={{ marginRight: '25px' }}>Tokens</div>
+                <div style={{ marginRight: '65px' }}>Profit %</div>
               </div>
             </div>
-            <p></p>
-            <div className={'flexbox-container'}>
-              <div className={'treasury-card'}>
-                <h4 style={{ paddingLeft: '1vw' }}>ETH Balance</h4>
-                <div style={{ marginLeft: '12.8vw' }}>$1,653</div>
+            <div className={'darktext'}>
+              <div className="flex-container">
+                <h4 style={{ marginLeft: '10px' }}> 2022-04-22 </h4>
+                <div style={{ marginLeft: '3vw' }}>SATS</div>
+                <div>$2,800 </div>
+                <div>$0.0256</div>
+                <div>110,056</div>
+                <div>
+                  {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
+                  {calc}%
+                </div>
+                <StyledExternalLink id={'charts-nav-link'} href={SATSChartURL}>
+                  <p
+                    style={{
+                      backgroundColor: '#a675c8',
+                      height: '35px',
+                      width: '100px',
+                      boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.3)',
+                      border: '1px solid',
+                      fontWeight: 'bold',
+                      fontSize: '18px',
+                      textAlign: 'center',
+                      alignItems: 'center',
+                      borderColor: '#000000',
+                      lineHeight: '35px',
+                      borderRadius: '5px',
+                      margin: '10px',
+                    }}
+                  >
+                    Chart
+                    <img
+                      src={TreasuryChartIcon}
+                      style={{ width: '30px', height: '30px', float: 'right' }}
+                      alt="icon"
+                    ></img>
+                  </p>
+                </StyledExternalLink>
               </div>
-              <div className={'treasury-card'} style={{ marginLeft: '11vw' }}>
-                <h4 style={{ paddingLeft: '1vw' }}>Total Balance</h4>
-                <div style={{ marginLeft: '12.5vw' }}>$70,847</div>
+              <p></p>
+              <div className="flex-container">
+                <h4 style={{ marginLeft: '10px' }}> 2022-04-14 </h4>
+                <div style={{ marginLeft: '3vw' }}>Dogger</div>
+                <div>$2,400.94 </div>
+                <div>$0.0024</div>
+                <div>970,123</div>
+                <div>
+                  {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
+                  {DoggerPriceInProfit}%
+                </div>
+                <StyledExternalLink id={'charts-nav-link'} href={DoggerChartURL}>
+                  <p
+                    style={{
+                      backgroundColor: '#a675c8',
+                      height: '35px',
+                      width: '100px',
+                      boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.3)',
+                      border: '1px solid',
+                      fontWeight: 'bold',
+                      fontSize: '18px',
+                      textAlign: 'center',
+                      alignItems: 'center',
+                      borderColor: '#000000',
+                      lineHeight: '35px',
+                      borderRadius: '5px',
+                      margin: '10px',
+                    }}
+                  >
+                    Chart
+                    <img
+                      src={TreasuryChartIcon}
+                      style={{ width: '30px', height: '30px', float: 'right' }}
+                      alt="icon"
+                    ></img>
+                  </p>
+                </StyledExternalLink>
+              </div>
+              <p></p>
+              <div className="flex-container">
+                <h4 style={{ marginLeft: '10px' }}> 2022-04-02</h4>
+                <div style={{ marginLeft: '3vw' }}>MRI</div>
+                <div>$4,622.99</div>
+                <div>$0.063</div>
+                <div>89,465</div>
+                <div>
+                  {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
+                  {MRIPriceInProfit}%
+                </div>
+                <StyledExternalLink id={'charts-nav-link'} href={MRIChartURL}>
+                  <p
+                    style={{
+                      backgroundColor: '#a675c8',
+                      height: '35px',
+                      width: '100px',
+                      boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.3)',
+                      border: '1px solid',
+                      fontWeight: 'bold',
+                      fontSize: '18px',
+                      textAlign: 'center',
+                      alignItems: 'center',
+                      borderColor: '#000000',
+                      lineHeight: '35px',
+                      borderRadius: '5px',
+                      margin: '10px',
+                    }}
+                  >
+                    Chart
+                    <img
+                      src={TreasuryChartIcon}
+                      style={{ width: '30px', height: '30px', float: 'right' }}
+                      alt="icon"
+                    ></img>
+                  </p>
+                </StyledExternalLink>
+              </div>
+              <p></p>
+              <div className="flex-container">
+                <h4 style={{ marginLeft: '10px' }}> 2022-04-05</h4>
+                <div style={{ marginLeft: '3vw' }}>Stilton</div>
+                <div>$3,448.00 </div>
+                <div>$0.000002588</div>
+                <div> 1.33 billion</div>
+                <div>
+                  {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
+                  {StiltPriceInProfit}%
+                </div>
+                <StyledExternalLink id={'charts- nav-link'} href={StiltonChartURL}>
+                  <p
+                    style={{
+                      backgroundColor: '#a675c8',
+                      height: '35px',
+                      width: '100px',
+                      boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.3)',
+                      border: '1px solid',
+                      fontWeight: 'bold',
+                      fontSize: '18px',
+                      textAlign: 'center',
+                      alignItems: 'center',
+                      borderColor: '#000000',
+                      lineHeight: '35px',
+                      borderRadius: '5px',
+                      margin: '10px',
+                    }}
+                  >
+                    Chart
+                    <img
+                      src={TreasuryChartIcon}
+                      style={{ width: '30px', height: '30px', float: 'right' }}
+                      alt="icon"
+                    ></img>
+                  </p>
+                </StyledExternalLink>
+              </div>
+              <p></p>
+              <p></p>
+              <TransparentCard></TransparentCard>
+              <div className={'flexbox-container'}>
+                <div className={'treasury-card'}>
+                  <h4 style={{ paddingLeft: '1vw' }}>Trade Balance</h4>
+                  <div style={{ marginLeft: '12vw' }}>$8,652</div>
+                </div>
+                <div className={'treasury-card'} style={{ marginLeft: '5vw' }}>
+                  <h4 style={{ paddingLeft: '1vw' }}>USDC Balance</h4>
+                  <div style={{ marginLeft: '12vw' }}>$66,642</div>
+                </div>
+              </div>
+              <p></p>
+              <div className={'flexbox-container'}>
+                <div className={'treasury-card'}>
+                  <p style={{ paddingLeft: '1vw' }}>ETH Balance</p>
+                  <div style={{ marginLeft: '12vw' }}>$1,653</div>
+                </div>
+                <div className={'treasury-card'} style={{ marginLeft: '5vw' }}>
+                  <h4 style={{ paddingLeft: '1vw' }}>Total Balance</h4>
+                  <div style={{ marginLeft: '12vw' }}>$76,947</div>
+                </div>
               </div>
             </div>
-          </div>
+          </BuyBackCard>
         </div>
       </>
     )
