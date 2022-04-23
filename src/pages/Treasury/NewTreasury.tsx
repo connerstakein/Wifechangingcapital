@@ -506,9 +506,9 @@ export default function Treasurysectionnew() {
               <div className="flexbox-container-align">
                 <div style={{ marginRight: '3vw' }}>Date</div>
                 <div style={{ marginRight: '0px' }}>Token</div>
-                <div style={{ marginRight: '15px' }}>Amount($)</div>
+                <div style={{ marginRight: '5px' }}>Amount($)</div>
                 <div style={{ marginRight: '25px' }}>Entry Price</div>
-                <div style={{ marginRight: '25px' }}>Tokens</div>
+                <div style={{ marginRight: '10px' }}>Tokens</div>
                 <div style={{ marginRight: '65px' }}>Profit %</div>
               </div>
             </div>
