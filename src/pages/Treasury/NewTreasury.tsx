@@ -57,7 +57,7 @@ export default function Treasurysectionnew() {
   const [STATSReserve0, setSTATSReserve0] = useState(Number)
   const [STATSReserve1, setSTATSReserve1] = useState(Number)
   const [holders, setholders] = useState(Number)
-  const [DoggerPrice, setDoggerPrice] = useState(Number)
+  // const [DoggerPrice, setDoggerPrice] = useState(Number)
   const [MRIPrice, setMRIPrice] = useState(Number)
   const [StiltPrice, setStiltPrice] = useState(Number)
   const context = useWeb3React()
@@ -184,27 +184,6 @@ export default function Treasurysectionnew() {
         // setLoading(false)
       }
     }
-    async function FetchDoggerPrice() {
-      if (showConnectAWallet) {
-        console.log({ message: 'Hold On there Partner, there seems to be an Account err!' })
-        return
-      }
-
-      try {
-        setLoading(true)
-        const response = await fetch(
-          'https://api.ethplorer.io/getTokenInfo/0x56143E2736C1b7F8A7d8C74707777850b46ac9aF?apiKey=EK-pHhzD-K23vfE9-d9bYq'
-        ) // Api Key also the pair contract
-        const data = await response.json()
-        const DoggerPrice = data.price.rate
-        return DoggerPrice
-      } catch (error) {
-        console.log(error)
-        setLoading(false)
-      } finally {
-        setLoading(false)
-      }
-    }
 
     async function FetchMRIPrice() {
       if (showConnectAWallet) {
@@ -297,7 +276,7 @@ export default function Treasurysectionnew() {
       .then((result) => setSTATSReserve0(result))
 
     FetchHolders().then((result) => setholders(result))
-    FetchDoggerPrice().then((result) => setDoggerPrice(result))
+    //FetchDoggerPrice().then((result) => setDoggerPrice(result))
     FetchMRIPrice().then((result) => setMRIPrice(result))
     FetchStiltPrice().then((result) => setStiltPrice(result))
   }, [account, showConnectAWallet, library.provider])
@@ -310,8 +289,8 @@ export default function Treasurysectionnew() {
   console.log(STATSPriceinUsd)
   //const calc = (STATSPriceinUsd / 0.0256) * 100
   const calc = 56
-  const DoggerPriceNear = DoggerPrice / 0.002478 - 1
-  const DoggerPriceInProfit = (DoggerPriceNear * 100).toFixed(2)
+  //const DoggerPriceNear = DoggerPrice / 0.002478 - 1
+  //const DoggerPriceInProfit = (DoggerPriceNear * 100).toFixed(2)
   const MRIPriceCalc = MRIPrice / 0.0547
   const MRIPriceInProfit = (MRIPriceCalc * 10).toFixed(2)
   const StiltPriceCalc = StiltPrice / 0.000002588 - 1
@@ -334,7 +313,7 @@ export default function Treasurysectionnew() {
   const n = numberWithCommas(Totalliquidity)
   const MarketCap = formatMoney(Marketcap)
 
-  const DoggerChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0x6c8ae94331d7f9bf7a1f3e0b1480ccfd46d1a723'
+  // const DoggerChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0x6c8ae94331d7f9bf7a1f3e0b1480ccfd46d1a723'
   const StiltonChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0x779dac1f4df345acb6ee814afda755f1693770cb'
   const MRIChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0xaae64809138f576b0b50f1d898dd99055327c2d3'
   const SATSChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0xa010e37405eb57437a381daae88e5c3913d0796c'
@@ -507,7 +486,7 @@ export default function Treasurysectionnew() {
                 <div style={{ marginRight: '3vw' }}>Date</div>
                 <div style={{ marginRight: '0px' }}>Token</div>
                 <div style={{ marginRight: '5px' }}>Amount($)</div>
-                <div style={{ marginRight: '25px' }}>Entry Price</div>
+                <div style={{ marginRight: '10px' }}>Entry Price</div>
                 <div style={{ marginRight: '10px' }}>Tokens</div>
                 <div style={{ marginRight: '65px' }}>Profit %</div>
               </div>
@@ -524,44 +503,6 @@ export default function Treasurysectionnew() {
                   {calc}%
                 </div>
                 <StyledExternalLink className={'six'} href={SATSChartURL}>
-                  <p
-                    style={{
-                      backgroundColor: '#a675c8',
-                      height: '35px',
-                      width: '100px',
-                      boxShadow: '0px 0px 10px 2px rgba(0,0,0,0.3)',
-                      border: '1px solid',
-                      fontWeight: 'bold',
-                      fontSize: '18px',
-                      textAlign: 'center',
-                      alignItems: 'center',
-                      borderColor: '#000000',
-                      lineHeight: '35px',
-                      borderRadius: '5px',
-                      margin: '10px',
-                    }}
-                  >
-                    Chart
-                    <img
-                      src={TreasuryChartIcon}
-                      style={{ width: '30px', height: '30px', float: 'right' }}
-                      alt="icon"
-                    ></img>
-                  </p>
-                </StyledExternalLink>
-              </div>
-              <p></p>
-              <div className="flex-container">
-                <h4 style={{ marginLeft: '10px' }}> 2022-04-14 </h4>
-                <div style={{ marginLeft: '3vw' }}>Dogger</div>
-                <div>$2,400.94 </div>
-                <div>$0.0024</div>
-                <div>970,123</div>
-                <div>
-                  {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
-                  {DoggerPriceInProfit}%
-                </div>
-                <StyledExternalLink id={'charts-nav-link'} href={DoggerChartURL}>
                   <p
                     style={{
                       backgroundColor: '#a675c8',

@@ -50,7 +50,7 @@ export const BuyBackCard = styled(Card)`
 export const TreasuryCard = styled(Card)`
   background-color: #371065;
   max-width: 800px;
-  width: 800px;
+  width: 750px;
   border-radius: 10px;
   text-align: center;
 `

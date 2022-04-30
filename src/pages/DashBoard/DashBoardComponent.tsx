@@ -4,7 +4,6 @@ import { SupportedChainId } from 'constants/chains'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import styled from 'styled-components/macro'
 
-import footer_background from '../../assets/images/footer_background.png'
 import Path20 from '../../assets/images/Path20.png'
 import Path23 from '../../assets/images/Path23.png'
 import { PurpleCard, TransparentCard } from '../../components/Card'
@@ -91,17 +90,8 @@ export default function DashBoardComponent() {
             </div>
             <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
             <TransparentCard></TransparentCard>
-            <div
-              className={'testimage'}
-              style={{
-                backgroundImage: `url(${footer_background})`,
-                width: '100vw',
-                height: '40vh',
-                maxHeight: '40vh',
-              }}
-            >
-              <Footer></Footer>
-            </div>
+            <p></p>
+            <Footer></Footer>
           </>
         )
       }
