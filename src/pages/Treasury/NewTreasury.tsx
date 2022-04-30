@@ -8,7 +8,7 @@ import { formatUnits } from '@ethersproject/units'
 import { useWeb3React } from '@web3-react/core'
 import { Spin } from 'antd'
 import TreasuryChartIcon from 'assets/images/treasury-chart-icon.png'
-import { BuyBackCard, LightPurpleCard, PurpleCard } from 'components/Card'
+import { LightPurpleCard, PurpleCard, TreasuryCard } from 'components/Card'
 import { TransparentCard } from 'components/Card'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import React, { useEffect, useState } from 'react'
@@ -501,7 +501,7 @@ export default function Treasurysectionnew() {
           </div>
         </div>
         <div className={'flexbox-vertical-container'}>
-          <BuyBackCard style={{ marginTop: '30px' }}>
+          <TreasuryCard style={{ marginTop: '30px' }}>
             <div style={{ marginTop: '30px' }} className={'whitetext'}>
               <div className="flexbox-container-align">
                 <div style={{ marginRight: '3vw' }}>Date</div>
@@ -523,7 +523,7 @@ export default function Treasurysectionnew() {
                   {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
                   {calc}%
                 </div>
-                <StyledExternalLink id={'charts-nav-link'} href={SATSChartURL}>
+                <StyledExternalLink className={'six'} href={SATSChartURL}>
                   <p
                     style={{
                       backgroundColor: '#a675c8',
@@ -689,7 +689,7 @@ export default function Treasurysectionnew() {
                 </div>
               </div>
             </div>
-          </BuyBackCard>
+          </TreasuryCard>
         </div>
       </>
     )

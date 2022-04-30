@@ -219,7 +219,7 @@
 }
 .treasury-card{
   display: flex;
-  width: 30vw;
+  width: 22.5vw;
   background-color: rgb(255, 255, 255);
   max-height: 35px;
   font-family: 'montserrat sans-serif';
@@ -473,4 +473,16 @@ align-items: 'center'; }
         right: 136% !important;
       }
     }
-  
+
+    a.four:link {color:#ffffff;}
+    a.four:visited {color:#ffffff;}
+    a.four:hover {color: rgba(255, 255, 255, 0.675)}
+
+    a.five:link {color:#000000;}
+    a.five:visited {color:#000000;}
+    a.five:hover {color: rgba(0, 0, 0, 0.7)} 
+    a.five:hover {font-size:95%;}
+
+    a.six:link {color:#000000;}
+    a.six:visited {color:#000000;}
+    a.six:hover {color: rgba(255, 255, 255, 0.949)}

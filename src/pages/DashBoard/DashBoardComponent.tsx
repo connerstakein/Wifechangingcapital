@@ -4,11 +4,13 @@ import { SupportedChainId } from 'constants/chains'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import styled from 'styled-components/macro'
 
+import footer_background from '../../assets/images/footer_background.png'
 import Path20 from '../../assets/images/Path20.png'
 import Path23 from '../../assets/images/Path23.png'
-import { PurpleCard } from '../../components/Card'
+import { PurpleCard, TransparentCard } from '../../components/Card'
 import { isMobile } from '../../utils/userAgent'
 import Companytest from './CitySection'
+import Footer from './Footer'
 import Headernew from './Newheader'
 import StratSection from './Strategy'
 
@@ -88,6 +90,18 @@ export default function DashBoardComponent() {
               <Companytest></Companytest>
             </div>
             <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
+            <TransparentCard></TransparentCard>
+            <div
+              className={'testimage'}
+              style={{
+                backgroundImage: `url(${footer_background})`,
+                width: '100vw',
+                height: '40vh',
+                maxHeight: '40vh',
+              }}
+            >
+              <Footer></Footer>
+            </div>
           </>
         )
       }
