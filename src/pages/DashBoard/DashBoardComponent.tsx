@@ -6,7 +6,7 @@ import styled from 'styled-components/macro'
 
 import Path20 from '../../assets/images/Path20.png'
 import Path23 from '../../assets/images/Path23.png'
-import { PurpleCard, TransparentCard } from '../../components/Card'
+import { PurpleCard } from '../../components/Card'
 import { isMobile } from '../../utils/userAgent'
 import Companytest from './CitySection'
 import Footer from './Footer'
@@ -79,18 +79,17 @@ export default function DashBoardComponent() {
           <>
             <Headernew></Headernew>
             <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
-            <div className={'testimage'} style={{ backgroundImage: `url(${Path23})`, width: '100vw' }}>
-              <div style={{ justifyContent: 'center' }}>
-                <StratSection></StratSection>
-              </div>
+
+            <div style={{ justifyContent: 'center' }}>
+              <img className={'testimage'} alt="header" src={Path23}></img>
+              <StratSection></StratSection>
             </div>
-            <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
-            <div className={'testbottomimage'} style={{ backgroundImage: `url(${Path20})`, width: '100vw' }}>
-              <Companytest></Companytest>
-            </div>
-            <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
-            <TransparentCard></TransparentCard>
-            <p></p>
+
+            <Companytest></Companytest>
+
+            <img className={'testbottomimage'} alt="header" src={Path20}></img>
+            <p style={{ paddingTop: '10vh', marginTop: '10vh' }}></p>
+
             <Footer></Footer>
           </>
         )

@@ -15,12 +15,15 @@ export default function BuybackTablenew() {
     return (
       <>
         <h1> BuyBack Table </h1>
-        <div style={{ marginTop: '30px', maxWidth: '400px' }} className={'whitetext'}>
+        <div
+          style={{ marginTop: '30px', maxWidth: '300px', overflow: 'scroll', overflowX: 'auto' }}
+          className={'whitetext'}
+        >
           <div className="flexbox-container-align">
-            <div style={{ marginRight: '35px' }}>Date</div>
+            <div style={{ marginRight: '20px' }}>Date</div>
             <div style={{ marginRight: '25px' }}> Buyback($)</div>
             <div style={{ marginRight: '25px' }}>Amount</div>
-            <div style={{ marginRight: '10px' }}>Burn %</div>
+            <div style={{ marginRight: '50px' }}>Burn %</div>
             <div style={{ marginRight: '15px' }}>Tx Hash</div>
           </div>
         </div>
