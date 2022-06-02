@@ -11,42 +11,12 @@ import TreasuryChartIcon from 'assets/images/treasury-chart-icon.png'
 import { LightPurpleCard, PurpleCard } from 'components/Card'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components/macro'
 
 //import { useTransition } from 'react-spring'
 import Assets_icon from '../../assets/images/Assets_icon.png'
 import Currency_icon from '../../assets/images/Currency_icon.png'
 import Line_pic from '../../assets/images/Line_pic.png'
 import Wallet_icon from '../../assets/images/Wallet_icon.png'
-import { ExternalLink } from '../../theme'
-import { isMobile } from '../../utils/userAgent'
-
-const activeClassName = 'ACTIVE'
-const StyledExternalLink = styled(ExternalLink).attrs({
-  activeClassName,
-})<{ isActive?: boolean }>`
-  ${({ theme }) => theme.flexRowNoWrap}
-  align-items: left;
-  border-radius: 3rem;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: #000000;
-  font-size: 1rem;
-  width: fit-content;
-  margin: 0 12px;
-  font-weight: 500;
-  &.${activeClassName} {
-    border-radius: 14px;
-    font-weight: 600;
-    color: #000000;
-  }
-  :hover,
-  :focus {
-    color: #000000;
-    text-decoration: none;
-  }
-`
 export default function Treasurysectionnew() {
   //const [loading, setLoading] = useState(false)
   const { account } = useActiveWeb3React()
@@ -58,7 +28,6 @@ export default function Treasurysectionnew() {
   const [SATSPrice, setSATSPrice] = useState(Number)
   const [holders, setholders] = useState(Number)
   // const [DoggerPrice, setDoggerPrice] = useState(Number)
-  const [MRIPrice, setMRIPrice] = useState(Number)
   const [StiltPrice, setStiltPrice] = useState(Number)
   const context = useWeb3React()
   const { library } = context
@@ -151,28 +120,6 @@ export default function Treasurysectionnew() {
       }
     }
 
-    async function FetchMRIPrice() {
-      if (showConnectAWallet) {
-        console.log({ message: 'Hold On there Partner, there seems to be an Account err!' })
-        return
-      }
-
-      try {
-        setLoading(true)
-        const response = await fetch(
-          'https://api.ethplorer.io/getTokenInfo/0x0913dDAE242839f8995c0375493f9a1A3Bddc977?apiKey=EK-pHhzD-K23vfE9-d9bYq'
-        ) // Api Key also the pair contract
-
-        const data = await response.json()
-        const MRIPrice = data.price.rate
-        return MRIPrice
-      } catch (error) {
-        console.log(error)
-        setLoading(false)
-      } finally {
-        setLoading(false)
-      }
-    }
     async function FetchStiltPrice() {
       if (showConnectAWallet) {
         console.log({ message: 'Hold On there Partner, there seems to be an Account err!' })
@@ -290,16 +237,11 @@ export default function Treasurysectionnew() {
 
     FetchHolders().then((result) => setholders(result))
     //FetchDoggerPrice().then((result) => setDoggerPrice(result))
-    FetchMRIPrice().then((result) => setMRIPrice(result))
     FetchStiltPrice().then((result) => setStiltPrice(result))
   }, [account, showConnectAWallet, library.provider])
 
   const WifePrice = Reserve0 / Reserve1
   const WifePriceinUsd = WifePrice / 1000000
-  //const DoggerPriceNear = DoggerPrice / 0.002478 - 1
-  //const DoggerPriceInProfit = (DoggerPriceNear * 100).toFixed(2)
-  const MRIPriceCalc = MRIPrice / 0.0547
-  const MRIPriceInProfit = (MRIPriceCalc * 10).toFixed(2)
   const StiltPriceCalc = StiltPrice / 0.000002588 - 1
   const StiltPriceInProfit = (StiltPriceCalc * 100).toFixed(2)
   console.log(StiltPriceInProfit)
@@ -327,149 +269,92 @@ export default function Treasurysectionnew() {
   const MarketCap = formatMoney(Marketcap)
 
   // const DoggerChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0x6c8ae94331d7f9bf7a1f3e0b1480ccfd46d1a723'
-  const StiltonChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0x779dac1f4df345acb6ee814afda755f1693770cb'
-  const MRIChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0xaae64809138f576b0b50f1d898dd99055327c2d3'
-  const SATSChartURL = 'https://www.dextools.io/app/ether/pair-explorer/0xa010e37405eb57437a381daae88e5c3913d0796c'
-  //[        <div style={{ justifyContent: 'center', marginLeft: '100px' }} className={'flexbox-vertical-container'}>
-  // <div className={'flexbox-vertical-container'}>
-  //<div className={'center-icon-mobile'}>
-  //  <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-  //   <img className={'card-icon'} src={Assets_icon} alt="Assets"></img>
-  // </LightPurpleCard>
-  // </div>
-  // <div className={'MarketCap-mobile'}>
-  //   <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-  //    <img className={'card-icon'} src={Currency_icon} alt="Currency"></img>
-  //  </LightPurpleCard>
-  // </div>
-  // <div className={'Wallet-mobile'}>
-  //  <LightPurpleCard style={{ maxWidth: 75, maxHeight: 75, width: 75, height: 75 }}>
-  //   <img className={'card-icon'} src={Wallet_icon} alt="Walletimg"></img>
-  //  </LightPurpleCard>
-  // </div>
-  //</div>
-  //</div>]
-
   console.log(n)
-  if (isMobile)
-    return (
-      <>
-        <div className="flexbox-vertical-container">
+
+  return (
+    <>
+      <div className={'flexbox-vertical-container'}>
+        <h1> Treasury</h1>
+        <div className={'flexbox-container'}>
+          <div className={'center-icon'}>
+            <LightPurpleCard style={{ maxWidth: '6vw', maxHeight: '12vh', width: '6vw', height: '12vh' }}>
+              <img style={{ maxWidth: '4vw', maxHeight: '10vh' }} src={Assets_icon} alt="Assets"></img>
+            </LightPurpleCard>
+          </div>
+          <div className={'MarketCap'}>
+            <LightPurpleCard style={{ maxWidth: '6vw', maxHeight: '12vh', width: '6vw', height: '12vh' }}>
+              <img style={{ maxWidth: '4vw', maxHeight: '10vh' }} src={Currency_icon} alt="Currency"></img>
+            </LightPurpleCard>
+          </div>
+          <div className={'Wallet'}>
+            <LightPurpleCard style={{ maxWidth: '6vw', maxHeight: '12vh', width: '6vw', height: '12vh' }}>
+              <img style={{ maxWidth: '4vw', maxHeight: '10vh' }} src={Wallet_icon} alt="Walletimg"></img>
+            </LightPurpleCard>
+          </div>
+        </div>
+      </div>
+      <div className="flexbox-vertical-container">
+        <div className={'flexbox-container'}>
           <div className={'flexbox-vertical-container'}>
-            <div className={'flexbox-vertical-container'}>
-              <PurpleCard style={{ marginRight: 50, maxWidth: 400, maxHeight: 250, width: 250, height: 175 }}>
-                <div style={{ marginTop: 25 }}>
-                  <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>Liquidity</h2>
-                  <div hidden={loading}>
-                    {' '}
-                    <h2 style={{ color: '#ffffff', fontSize: '22px', textAlign: 'right' }}>{TotalLiquidity}</h2>
-                  </div>
-                  {loading ? (
-                    <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
-                  ) : (
-                    ''
-                  )}
-                  <img className={'img-size'} src={Line_pic} alt="line"></img>
-                  <p></p>
-                </div>
-              </PurpleCard>
-            </div>
-            <div className={'flexbox-vertical-container'}>
-              <PurpleCard style={{ marginTop: '25px', maxWidth: 400, maxHeight: 250, width: 250, height: 175 }}>
-                <div style={{ marginTop: 25 }}>
-                  <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>Holders</h2>
-                  <div hidden={loading}>
-                    <h2 style={{ color: '#ffffff', fontSize: '22px', textAlign: 'right' }}>{holders}</h2>
-                  </div>
-                  {loading ? (
-                    <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
-                  ) : (
-                    ''
-                  )}
-                  <img className={'img-size'} src={Line_pic} alt="line"></img>
-                  <p></p>
-                </div>
-              </PurpleCard>
-            </div>
-            <div className={'flexbox-vertical-container'}>
-              <PurpleCard style={{ marginTop: '25px', maxWidth: 300, maxHeight: 200, width: 250, height: 175 }}>
-                <div style={{ marginTop: 25 }}>
-                  <h2 style={{ color: '#ffffff', fontSize: '18px', textAlign: 'right' }}>MarketCap</h2>
-                  <div hidden={loading}>
-                    <h2 style={{ color: '#ffffff', fontSize: '22px', textAlign: 'right' }}>{MarketCap}</h2>
-                  </div>
-                  {loading ? (
-                    <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
-                  ) : (
-                    ''
-                  )}
-                  <img className={'img-size'} src={Line_pic} alt="line"></img>
-                  <p></p>
-                </div>
-              </PurpleCard>
-            </div>
-          </div>
-        </div>
-      </>
-    )
-  else
-    return (
-      <>
-        <div className={'flexbox-vertical-container'}>
-          <h1> Treasury</h1>
-          <div className={'flexbox-container'}>
-            <div className={'center-icon'}>
-              <LightPurpleCard style={{ maxWidth: '6vw', maxHeight: '12vh', width: '6vw', height: '12vh' }}>
-                <img style={{ maxWidth: '4vw', maxHeight: '10vh' }} src={Assets_icon} alt="Assets"></img>
-              </LightPurpleCard>
-            </div>
-            <div className={'MarketCap'}>
-              <LightPurpleCard style={{ maxWidth: '6vw', maxHeight: '12vh', width: '6vw', height: '12vh' }}>
-                <img style={{ maxWidth: '4vw', maxHeight: '10vh' }} src={Currency_icon} alt="Currency"></img>
-              </LightPurpleCard>
-            </div>
-            <div className={'Wallet'}>
-              <LightPurpleCard style={{ maxWidth: '6vw', maxHeight: '12vh', width: '6vw', height: '12vh' }}>
-                <img style={{ maxWidth: '4vw', maxHeight: '10vh' }} src={Wallet_icon} alt="Walletimg"></img>
-              </LightPurpleCard>
-            </div>
-          </div>
-        </div>
-        <div className="flexbox-vertical-container">
-          <div className={'flexbox-container'}>
-            <div className={'flexbox-vertical-container'}>
-              <PurpleCard style={{ maxWidth: '22vw', maxHeight: '30vh', width: '22vw', height: '30vh' }}>
-                <div style={{ marginTop: 25 }}>
+            <PurpleCard style={{ maxWidth: '22vw', maxHeight: '30vh', width: '22vw', height: '30vh' }}>
+              <div style={{ marginTop: 25 }}>
+                <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.4vw + 0.4vh))', textAlign: 'right' }}>
+                  Liquidity
+                </h2>
+                <div hidden={loading}>
+                  {' '}
                   <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.4vw + 0.4vh))', textAlign: 'right' }}>
-                    Liquidity
+                    {TotalLiquidity}
                   </h2>
-                  <div hidden={loading}>
-                    {' '}
-                    <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.4vw + 0.4vh))', textAlign: 'right' }}>
-                      {TotalLiquidity}
-                    </h2>
-                  </div>
-                  {loading ? (
-                    <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
-                  ) : (
-                    ''
-                  )}
-                  <img className={'img-size'} src={Line_pic} alt="line"></img>
-                  <p></p>
                 </div>
-              </PurpleCard>
-            </div>
+                {loading ? (
+                  <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
+                ) : (
+                  ''
+                )}
+                <img className={'img-size'} src={Line_pic} alt="line"></img>
+                <p></p>
+              </div>
+            </PurpleCard>
+          </div>
+          <div className={'flexbox-vertical-container'}>
+            <PurpleCard style={{ maxWidth: '22vw', maxHeight: '30vh', width: '22vw', height: '30vh', marginLeft: 50 }}>
+              <div style={{ marginTop: 25 }}>
+                <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.4vw + 0.4vh))', textAlign: 'right' }}>Holders</h2>
+                <div hidden={loading}>
+                  <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.4vw + 0.4vh))', textAlign: 'right' }}>
+                    {holders}
+                  </h2>
+                </div>
+                {loading ? (
+                  <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
+                ) : (
+                  ''
+                )}
+                <img className={'img-size'} src={Line_pic} alt="line"></img>
+                <p></p>
+              </div>
+            </PurpleCard>
+          </div>
+          <div className={'flexibletext'}>
             <div className={'flexbox-vertical-container'}>
               <PurpleCard
-                style={{ maxWidth: '22vw', maxHeight: '30vh', width: '22vw', height: '30vh', marginLeft: 50 }}
+                style={{
+                  marginLeft: 50,
+                  maxWidth: 300,
+                  maxHeight: 200,
+                  width: '25vw',
+                  height: '30vh',
+                  fontSize: 'calc(3 * (0.35vw + 0.35vh))',
+                }}
               >
                 <div style={{ marginTop: 25 }}>
-                  <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.4vw + 0.4vh))', textAlign: 'right' }}>
-                    Holders
+                  <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.35vw + 0.35vh))', textAlign: 'right' }}>
+                    MarketCap
                   </h2>
                   <div hidden={loading}>
-                    <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.4vw + 0.4vh))', textAlign: 'right' }}>
-                      {holders}
+                    <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.35vw + 0.35vh))', textAlign: 'right' }}>
+                      {MarketCap}
                     </h2>
                   </div>
                   {loading ? (
@@ -482,102 +367,71 @@ export default function Treasurysectionnew() {
                 </div>
               </PurpleCard>
             </div>
-            <div className={'flexibletext'}>
-              <div className={'flexbox-vertical-container'}>
-                <PurpleCard
-                  style={{
-                    marginLeft: 50,
-                    maxWidth: 300,
-                    maxHeight: 200,
-                    width: '25vw',
-                    height: '30vh',
-                    fontSize: 'calc(3 * (0.35vw + 0.35vh))',
-                  }}
-                >
-                  <div style={{ marginTop: 25 }}>
-                    <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.35vw + 0.35vh))', textAlign: 'right' }}>
-                      MarketCap
-                    </h2>
-                    <div hidden={loading}>
-                      <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.35vw + 0.35vh))', textAlign: 'right' }}>
-                        {MarketCap}
-                      </h2>
-                    </div>
-                    {loading ? (
-                      <Spin style={{ position: 'relative', left: 100 }} indicator={antIcon} className="add-spinner" />
-                    ) : (
-                      ''
-                    )}
-                    <img className={'img-size'} src={Line_pic} alt="line"></img>
-                    <p></p>
-                  </div>
-                </PurpleCard>
-              </div>
-            </div>
           </div>
         </div>
-        <p></p>
-        <div style={{ overflowX: 'auto', minWidth: '400px' }}>
-          <table>
-            <tr>
-              <th>Date</th>
-              <th>Token</th>
-              <th>Amount($)</th>
-              <th>Entry Price</th>
-              <th>Tokens</th>
-              <th>Profit %</th>
-            </tr>
-            <tr>
-              <td>2022-04-22</td>
-              <td>SATS</td>
-              <td>$2,800</td>
-              <td>$0.0256</td>
-              <td>110,056</td>
-              <td>
-                {' '}
-                {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
-                {SATSPriceInProfit}%{' '}
-              </td>
-              <td style={{ backgroundColor: 'purple' }}>
-                {' '}
-                <img src={TreasuryChartIcon} style={{ width: '30px', height: '30px', float: 'left' }} alt="icon"></img>
-                <a
-                  className={'four'}
-                  href="https://www.dextools.io/app/ether/pair-explorer/0xa010e37405eb57437a381daae88e5c3913d0796c"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Chart
-                </a>
-              </td>
-              <p></p>
-            </tr>
+      </div>
+      <p></p>
+      <div style={{ overflowX: 'auto', minWidth: '400px' }}>
+        <table>
+          <tr>
+            <th>Date</th>
+            <th>Token</th>
+            <th>Amount($)</th>
+            <th>Entry Price</th>
+            <th>Tokens</th>
+            <th>Profit %</th>
+          </tr>
+          <tr>
+            <td>2022-04-22</td>
+            <td>SATS</td>
+            <td>$2,800</td>
+            <td>$0.0256</td>
+            <td>110,056</td>
+            <td>
+              {' '}
+              {loading ? <Spin indicator={antIcon} className="add-spinner" /> : ''}
+              {SATSPriceInProfit}%{' '}
+            </td>
+            <td style={{ backgroundColor: 'purple' }}>
+              {' '}
+              <img src={TreasuryChartIcon} style={{ width: '30px', height: '30px', float: 'left' }} alt="icon"></img>
+              <a
+                className={'four'}
+                href="https://www.dextools.io/app/ether/pair-explorer/0xa010e37405eb57437a381daae88e5c3913d0796c"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Chart
+              </a>
+            </td>
             <p></p>
-          </table>
+          </tr>
           <p></p>
-        </div>
+        </table>
         <p></p>
-        <div className={'myspaceevencontainer'}>
-          <div className={'InsideSpaceRightdiv'}>
-            <div className={'InsideSpaceRightTextdiv'}>Total Eth</div>
-            <div style={{ width: '15vw', borderRadius: '10px' }}>{EthBalance}</div>
-          </div>
-          <div className={'InsideSpaceRightdiv'}>
-            <div className={'InsideSpaceRightTextdiv'}>Treasury</div>
-            <div style={{ width: '15vw', borderRadius: '10px' }}> $76,000</div>
-          </div>
+      </div>
+      <p></p>
+      <div className={'myspaceevencontainer'}>
+        <div className={'InsideSpaceRightdiv'}>
+          <div className={'InsideSpaceRightTextdiv'}>Total Eth</div>
+          <div style={{ width: '15vw', borderRadius: '10px' }}>{EthBalance}</div>
         </div>
-        <p></p>
-        <div className={'myspaceevencontainer'}>
-          <div className={'InsideSpaceRightdiv'}>
-            <div className={'InsideSpaceRightTextdiv'}>Trade Balance</div>
-            <div style={{ width: '15vw', borderRadius: '10px' }}> $10,564</div>
-          </div>
-          <div className={'InsideSpaceRightdiv'}>
-            <div className={'InsideSpaceRightTextdiv'}>USDC Balance</div>
-            <div style={{ width: '15vw', borderRadius: '10px', paddingRight: '1vh' }}> {USDCdisplay}</div>
-          </div>
+        <div className={'InsideSpaceRightdiv'}>
+          <div className={'InsideSpaceRightTextdiv'}>Treasury</div>
+          <div style={{ width: '15vw', borderRadius: '10px' }}> $76,000</div>
         </div>
-      </>
-    )
+      </div>
+      <p></p>
+      <div className={'myspaceevencontainer'}>
+        <div className={'InsideSpaceRightdiv'}>
+          <div className={'InsideSpaceRightTextdiv'}>Trade Balance</div>
+          <div style={{ width: '15vw', borderRadius: '10px' }}> $10,564</div>
+        </div>
+        <div className={'InsideSpaceRightdiv'}>
+          <div className={'InsideSpaceRightTextdiv'}>USDC Balance</div>
+          <div style={{ width: '15vw', borderRadius: '10px', paddingRight: '1vh' }}> {USDCdisplay}</div>
+        </div>
+      </div>
+    </>
+  )
 }
