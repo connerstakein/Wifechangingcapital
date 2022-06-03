@@ -7,7 +7,6 @@ import styled from 'styled-components/macro'
 import Path20 from '../../assets/images/Path20.png'
 import Path23 from '../../assets/images/Path23.png'
 import { PurpleCard } from '../../components/Card'
-import { isMobile } from '../../utils/userAgent'
 import Companytest from './CitySection'
 import Footer from './Footer'
 import Headernew from './Newheader'
@@ -62,38 +61,24 @@ export default function DashBoardComponent() {
         </PurpleCard>
       )
     } else {
-      if (isMobile) {
-        return (
-          <>
-            {' '}
-            <Headernew></Headernew>
-            <p style={{ paddingTop: '20px', marginTop: '20px', marginBottom: '20px' }}></p>
+      return (
+        <>
+          <Headernew></Headernew>
+          <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
+
+          <div style={{ justifyContent: 'center' }}>
+            <img className={'testimage'} alt="header" src={Path23}></img>
             <StratSection></StratSection>
-            <p style={{ paddingTop: '20px', marginTop: '20px', marginBottom: '20px' }}></p>
-            <Companytest></Companytest>
-            <p style={{ paddingTop: '20px', marginTop: '20px', marginBottom: '20px' }}></p>
-          </>
-        )
-      } else {
-        return (
-          <>
-            <Headernew></Headernew>
-            <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
+          </div>
 
-            <div style={{ justifyContent: 'center' }}>
-              <img className={'testimage'} alt="header" src={Path23}></img>
-              <StratSection></StratSection>
-            </div>
+          <Companytest></Companytest>
 
-            <Companytest></Companytest>
+          <img className={'testbottomimage'} alt="header" src={Path20}></img>
+          <p style={{ paddingTop: '10vh', marginTop: '10vh' }}></p>
 
-            <img className={'testbottomimage'} alt="header" src={Path20}></img>
-            <p style={{ paddingTop: '10vh', marginTop: '10vh' }}></p>
-
-            <Footer></Footer>
-          </>
-        )
-      }
+          <Footer></Footer>
+        </>
+      )
     }
   }
 }

@@ -48,6 +48,7 @@ const StratSection = () => {
                 maxWidth: '20vw',
                 maxHeight: '30vh',
                 width: '20vw',
+                minWidth: '10vw',
                 marginRight: '2vw',
                 height: '30vh',
                 marginTop: 20,
@@ -66,7 +67,7 @@ const StratSection = () => {
               style={{
                 maxWidth: '20vw',
                 maxHeight: '30vh',
-                minWidth: '5vw',
+                minWidth: '10vw',
                 minHeight: '5vw',
                 width: '20vw',
                 height: '30vh',
@@ -88,6 +89,7 @@ const StratSection = () => {
               style={{
                 maxWidth: '20vw',
                 maxHeight: '30vh',
+                minWidth: '10vw',
                 width: '20vw',
                 marginRight: '1vw',
                 height: '30vh',

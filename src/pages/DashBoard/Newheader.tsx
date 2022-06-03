@@ -37,7 +37,7 @@ const Headernew = () => {
           <img className={'headerimage'} src={coin} alt="header"></img>
           <div className={'headermobile'}>
             <div style={{ marginTop: '80px' }} className="flexbox-vertical-container-left">
-              <div className="flexbox-container-left" style={{ minWidth: '600px' }}>
+              <div className="flexbox-container-left" style={{ minWidth: '300px' }}>
                 <div className="flexbox-container">
                   <StyledHeaderText1> Change your</StyledHeaderText1> <StyledHeaderText2>wife</StyledHeaderText2>
                 </div>
