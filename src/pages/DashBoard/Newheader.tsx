@@ -15,17 +15,17 @@ const StyledCardText = styled.text`
   font-weight: bold;
 `
 const StyledHeaderText1 = styled.text`
-  font-size: 48px;
+  font-size: calc(3 * (0.75vw + 0.75vh));
   color: #ffffff;
   font-family: Montserrat, sans-serif;
   font-weight: bold;
 `
 const StyledHeaderText2 = styled.text`
-  font-size: 48px;
+  font-size: calc(3 * (0.75vw + 0.75vh));
   color: #f821ff;
   font-weight: bold;
   position: relative;
-  left: 15px;
+  left: 10px;
   font-family: 'Montserrat', Sans-serif;
 `
 
@@ -33,11 +33,11 @@ const Headernew = () => {
   return (
     <>
       <div className={'animate__animated animate__backInRight'}>
-        <div className={'flexbox-container'}>
+        <div className={'flexbox-container-withmobile'}>
           <img className={'headerimage'} src={coin} alt="header"></img>
           <div className={'headermobile'}>
             <div style={{ marginTop: '80px' }} className="flexbox-vertical-container-left">
-              <div className="flexbox-container-left" style={{ minWidth: '300px' }}>
+              <div className="flexbox-container-left" style={{ minWidth: '400px' }}>
                 <div className="flexbox-container">
                   <StyledHeaderText1> Change your</StyledHeaderText1> <StyledHeaderText2>wife</StyledHeaderText2>
                 </div>
@@ -45,7 +45,7 @@ const Headernew = () => {
                   <StyledHeaderText1> Change your</StyledHeaderText1> <StyledHeaderText2>life</StyledHeaderText2>
                 </div>
               </div>
-              <p style={{ textAlign: 'left', maxWidth: '600px' }}>
+              <p style={{ textAlign: 'left', maxWidth: '600px', fontSize: 'calc(3 * (0.3vw + 0.3vh))' }}>
                 {' '}
                 Come with us on a journey to change your life, and if you need to along the way you could just change
                 your wife
@@ -74,6 +74,7 @@ const Headernew = () => {
                     borderRadius: '10px',
                     marginTop: '30px',
                     width: '15vw',
+                    minWidth: '15px',
                     paddingTop: '1vh',
                     paddingBottom: '1vh',
                     backgroundColor: '#330a63',
@@ -99,6 +100,7 @@ const Headernew = () => {
                     borderColor: 'rgba(255, 255, 255, 0.582)',
                     maxHeight: '5vh',
                     width: '15vw',
+                    minWidth: '15px',
                     paddingTop: '1vh',
                     paddingBottom: '1vh',
                     borderRadius: '10px',

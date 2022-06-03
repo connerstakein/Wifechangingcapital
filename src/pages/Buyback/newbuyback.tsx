@@ -3,6 +3,7 @@ import '../DashBoard/styles.css'
 
 import { BuyBackCard } from 'components/Card'
 import React from 'react'
+import Chart from 'react-google-charts'
 import styled from 'styled-components/macro'
 
 import Group3160 from '../../assets/images/Group3160.png'
@@ -11,6 +12,44 @@ const StyledImg = styled.img`
   justify-content: 'center';
 `
 export default function BuybackTablenew() {
+  const pieOptions = {
+    title: '',
+    pieHole: 0.6,
+    slices: [
+      {
+        color: '#2BB673',
+      },
+      {
+        color: '#d91e48',
+      },
+      {
+        color: '#007fad',
+      },
+      {
+        color: '#e9a227',
+      },
+    ],
+    legend: {
+      position: 'bottom',
+      alignment: 'center',
+      textStyle: {
+        color: '#FFFFFF',
+        fontSize: 14,
+      },
+    },
+    tooltip: {
+      showColorCode: true,
+    },
+    chartArea: {
+      left: 0,
+      top: 0,
+      backgroundColor: 'transparent',
+      width: '100%',
+      height: '80%',
+    },
+    fontName: 'Roboto',
+    backgroundColor: 'transparent',
+  }
   return (
     <>
       <p></p>
@@ -149,6 +188,21 @@ export default function BuybackTablenew() {
           </div>
         </div>
       </BuyBackCard>
+      <div className="piechart" style={{ marginTop: '20px' }}>
+        <Chart
+          chartType="PieChart"
+          data={[
+            ['Age', 'Weight'],
+            ['Total Supply', 100],
+            ['Total Supply Burned', 7],
+          ]}
+          options={pieOptions}
+          graph_id="PieChart"
+          width={'100%'}
+          height={'400px'}
+          legend_toggle
+        />
+      </div>
     </>
   )
 }

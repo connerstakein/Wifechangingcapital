@@ -296,7 +296,7 @@ export default function Treasurysectionnew() {
       <div className="flexbox-vertical-container">
         <div className={'flexbox-container'}>
           <div className={'flexbox-vertical-container'}>
-            <PurpleCard style={{ maxWidth: '22vw', maxHeight: '30vh', width: '22vw', height: '30vh' }}>
+            <PurpleCard style={{ maxWidth: '22vw', maxHeight: '30vh', width: '22vw', height: '30vh', minWidth: '5vw' }}>
               <div style={{ marginTop: 25 }}>
                 <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.4vw + 0.4vh))', textAlign: 'right' }}>
                   Liquidity
@@ -318,7 +318,16 @@ export default function Treasurysectionnew() {
             </PurpleCard>
           </div>
           <div className={'flexbox-vertical-container'}>
-            <PurpleCard style={{ maxWidth: '22vw', maxHeight: '30vh', width: '22vw', height: '30vh', marginLeft: 50 }}>
+            <PurpleCard
+              style={{
+                maxWidth: '22vw',
+                maxHeight: '30vh',
+                width: '22vw',
+                height: '30vh',
+                marginLeft: 50,
+                minWidth: '5vw',
+              }}
+            >
               <div style={{ marginTop: 25 }}>
                 <h2 style={{ color: '#ffffff', fontSize: 'calc(3 * (0.4vw + 0.4vh))', textAlign: 'right' }}>Holders</h2>
                 <div hidden={loading}>
@@ -341,9 +350,10 @@ export default function Treasurysectionnew() {
               <PurpleCard
                 style={{
                   marginLeft: 50,
-                  maxWidth: 300,
-                  maxHeight: 200,
-                  width: '25vw',
+                  maxWidth: '22vw',
+                  maxHeight: '30vh',
+                  minWidth: '5vw',
+                  width: '22vw',
                   height: '30vh',
                   fontSize: 'calc(3 * (0.35vw + 0.35vh))',
                 }}
@@ -394,7 +404,11 @@ export default function Treasurysectionnew() {
             </td>
             <td style={{ backgroundColor: 'purple' }}>
               {' '}
-              <img src={TreasuryChartIcon} style={{ width: '30px', height: '30px', float: 'left' }} alt="icon"></img>
+              <img
+                src={TreasuryChartIcon}
+                style={{ width: '30px', height: '30px', float: 'left', marginRight: '1vw' }}
+                alt="icon"
+              ></img>
               <a
                 className={'four'}
                 href="https://www.dextools.io/app/ether/pair-explorer/0xa010e37405eb57437a381daae88e5c3913d0796c"
