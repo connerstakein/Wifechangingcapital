@@ -479,18 +479,19 @@ height: 65vh,
 .headermobile {
   max-width: 400px;
   display: flex;
-  left: 150vw;
   flex-direction: column;
   justify-content: left;
   align-items: left;
   text-align: left;
+  left: 15vw;
+  position: relative;
 
 }
 .flexbox-container-withmobile {
   display: flex;
   flex-direction: row;
-  justify-content: left;
-  align-items: left;
+  justify-content: center;
+  align-items: center;
   text-align: left;
 }
 }

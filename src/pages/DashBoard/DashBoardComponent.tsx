@@ -64,7 +64,7 @@ export default function DashBoardComponent() {
       return (
         <>
           <Headernew></Headernew>
-          <p style={{ paddingTop: '10px', marginTop: '10px', marginBottom: '10px' }}></p>
+          <p style={{ paddingTop: '5vh', marginTop: '5vh', marginBottom: '2vh' }}></p>
 
           <div style={{ justifyContent: 'center' }}>
             <img className={'testimage'} alt="header" src={Path23}></img>
